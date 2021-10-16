@@ -1,0 +1,21 @@
+@import "variables";
+@import "mixins";
+
+$color-navigation-bg: #fbfbfb;
+$color-navigation-border: #eaeaea;
+
+.page-with-back {
+  display: flex;
+  flex-direction: row;
+
+  > .back {
+    @include center;
+    flex: 80px 0 0;
+    background-color: $color-navigation-bg;
+    border-right: 1px solid $color-navigation-border;
+  }
+
+  > .content {
+    flex: 1;
+  }
+}
