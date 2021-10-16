@@ -1,6 +1,8 @@
 Веб чат для курса Яндекс Практикума от Кудрина Матвея
-Проект находится на стадии заготовки макетов  
-Сайт задеплоен на https://sleepy-ptolemy-7f8b8b.netlify.app/
+Проект находится на стадии заготовки макетов
+## Ссылки  
+- [Задеплоеная версия](https://sleepy-ptolemy-7f8b8b.netlify.app/)
+- [Дизайн](https://www.figma.com/file/kGMawcstRVL2dLrNMFusu0/Chat?node-id=0%3A1) 
 ## Сверстаны страницы 
 - [404](static/404.html)
 - [500](static/500.html)
