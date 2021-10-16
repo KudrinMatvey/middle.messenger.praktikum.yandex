@@ -1,1 +1,3 @@
-export { registerChatMessage, ChatMessageConfig } from "./chat-message";
+export { registerChatMessage } from './chat-message';
+export type { ChatMessageConfig } from "./chat-message";
+

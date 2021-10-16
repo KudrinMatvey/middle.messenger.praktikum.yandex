@@ -17,9 +17,9 @@ interface ProfilePage {
 const stub: ProfilePage = {
   actions: [{ text: "Сохранить" }, { text: "Назад", href: "profile.html" }],
   inputFields: [
-    { label: "Старый пароль", name: "old_password" },
-    { label: "Новый пароль", name: "new_password" },
-    { label: "Новый пароль (еще раз)", name: "repeat_password" },
+    { label: "Старый пароль", name: "oldPassword" },
+    { label: "Новый пароль", name: "newPassword" },
+    { label: "Новый пароль (еще раз)", name: "repeatPassword" },
   ],
   firstName: "Иван",
 };

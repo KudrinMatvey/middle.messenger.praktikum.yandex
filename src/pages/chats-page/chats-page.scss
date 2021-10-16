@@ -7,13 +7,27 @@
   grid-template-areas:
     "profile chat-header"
     "search chat"
-    "list chat";
+    "list chat"
+    "list message-actions";
   grid-template-rows: 52px 40px 1fr;
   grid-template-columns: 2fr 3fr;
   background-color: $color-light-bg;
 
   > .chat-header {
     grid-area: chat-header;
+  }
+
+  >.message-actions {
+    background-color: $color-white;
+    grid-area: message-actions;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: $offset-s;
+    margin:0 $offset-s;
+    padding: $offset-s 0;
+    border-top: 1px solid $color-card-border;
   }
 
   > .edit-profile {

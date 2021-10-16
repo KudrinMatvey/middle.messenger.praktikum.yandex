@@ -1,1 +1,3 @@
-export { registerLink, LinkConfig } from "./link";
+export { registerLink } from './link';
+export type { LinkConfig } from "./link";
+

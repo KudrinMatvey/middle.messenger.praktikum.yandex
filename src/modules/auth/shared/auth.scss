@@ -22,6 +22,10 @@ $login-width: 300px;
 
     padding: $offset-m;
 
+    >.input-field {
+      margin-bottom: $offset-l;
+    }
+
     > .header {
       margin-bottom: 60px;
     }

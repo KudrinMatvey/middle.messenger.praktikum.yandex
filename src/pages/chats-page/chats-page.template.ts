@@ -11,6 +11,11 @@ export const chatsPageTemplate = `
     <div class="selected-chat">
       {{{chatHistoryTmpl}}}
     </div>
+     <div class="message-actions">
+      {{> button attachButton}}
+      {{> input messageInput}}
+      {{> button sendButton}}
+    </div>
     <div class="chat-header">
     </div>
     {{else}}

@@ -11,33 +11,31 @@ interface LoginPage {
   passwordInput: InputConfig;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  const body = document.getElementsByTagName("body");
+const body = document.getElementsByTagName("body");
 
-  registerDefaultValueHelper();
-  registerButton();
-  registerInput();
+registerDefaultValueHelper();
+registerButton();
+registerInput();
 
-  const compiled = compile<LoginPage>(loginTemplate);
-  const html = compiled({
-    passwordInput: {
-      type: "password",
-      name: "password",
-      label: "Пароль",
-    },
-    registerButton: {
-      buttonText: "Нет аккаунта?",
-    },
-    loginButton: {
-      onClick: "loginFn()",
-      buttonText: "Войти",
-      className: "-primary",
-    },
-    loginInput: {
-      label: "Логин",
-      name: "login",
-    },
-  });
-
-  body[0].innerHTML = html;
+const compiled = compile<LoginPage>(loginTemplate);
+const html = compiled({
+  passwordInput: {
+    type: "password",
+    name: "password",
+    label: "Пароль",
+  },
+  registerButton: {
+    buttonText: "Нет аккаунта?",
+  },
+  loginButton: {
+    onClick: "loginFn()",
+    buttonText: "Войти",
+    className: "-primary",
+  },
+  loginInput: {
+    label: "Логин",
+    name: "login",
+  },
 });
+
+body[0].innerHTML = html;

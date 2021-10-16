@@ -2,9 +2,9 @@ import { registerPartial } from "handlebars";
 
 export interface ButtonConfig {
   onClick?: string;
-  buttonText: string;
+  buttonText?: string;
   icon?: string;
-  className?: "-primary";
+  className?: string;
 }
 
 export const registerButton = () =>
