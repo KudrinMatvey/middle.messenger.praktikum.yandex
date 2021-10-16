@@ -1,7 +1,7 @@
 import { compile } from "handlebars";
 import { registerDefaultValueHelper } from "../../utils";
-import { ButtonConfig, registerButton } from '../../components/button';
-import { InputConfig, registerInput } from '../../components/input';
+import { ButtonConfig, registerButton } from "../../components/button";
+import { InputConfig, registerInput } from "../../components/input";
 import { registerChatMessage } from "../../components/chat-message";
 import { chatsPageTemplate } from "./chats-page.template";
 import { renderChatHistory } from "../../modules/chats/chat-history";
@@ -119,19 +119,19 @@ const chatList = {
 };
 const pageActions = {
   sendButton: {
-    icon: 'img/forward.svg',
-    className: '-primary -icon -round'
+    icon: "img/forward.svg",
+    className: "-primary -icon -round",
   },
   attachButton: {
-    icon: 'img/clip.svg',
-    className: '-transparent -icon -round'
+    icon: "img/clip.svg",
+    className: "-transparent -icon -round",
   },
   messageInput: {
-    label: 'Введите сообщение',
-    name: 'message',
-    className: '-round -grey -no-label'
+    label: "Введите сообщение",
+    name: "message",
+    className: "-round -grey -no-label",
   },
-}
+};
 
 const body = document.getElementsByTagName("body");
 

@@ -17,7 +17,7 @@
     grid-area: chat-header;
   }
 
-  >.message-actions {
+  > .message-actions {
     background-color: $color-white;
     grid-area: message-actions;
     display: flex;
@@ -25,7 +25,7 @@
     align-items: center;
     justify-content: space-between;
     gap: $offset-s;
-    margin:0 $offset-s;
+    margin: 0 $offset-s;
     padding: $offset-s 0;
     border-top: 1px solid $color-card-border;
   }
