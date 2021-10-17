@@ -1,0 +1,37 @@
+@import "variables";
+
+@mixin text($color: $color-text-dark, $fontSize: $font-size-m) {
+  color: $color;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  font-size: $fontSize;
+}
+
+@mixin text-bold($color: $color-text-grey) {
+  @include text($color);
+  font-weight: bold;
+}
+
+@mixin title() {
+  font-weight: bold;
+  font-size: $font-size-l;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+  line-height: $height;
+}

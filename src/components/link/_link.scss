@@ -1,0 +1,14 @@
+@import "src/scss/variables";
+
+.link-wrapper {
+  padding: $offset-s;
+
+  > .link {
+    color: $color-tangerine;
+    text-decoration: none;
+
+    &.-red {
+      color: $color-red;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# build
+dist
+.parcel-cache
+
+# dependencies
+node_modules
+
+# idea
+.idea

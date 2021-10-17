@@ -1,0 +1,1 @@
+export { registerSearch } from "./search";
