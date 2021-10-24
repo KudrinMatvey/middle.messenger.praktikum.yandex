@@ -1,4 +1,5 @@
 @import "src/scss/variables";
+
 @import "src/scss/mixins";
 
 $input-height: 20px;
@@ -8,6 +9,7 @@ $input-height: 20px;
   position: relative;
 
   > .label {
+
     @include text($color-text-grey, $font-size-xs);
     display: block;
     position: absolute;
@@ -26,6 +28,7 @@ $input-height: 20px;
   }
 
   &.-round {
+
     > .input {
     height: 32px;
     padding: 0 $offset-m;
@@ -33,7 +36,9 @@ $input-height: 20px;
   }}
 
   &.-grey {
+
     > .input {
+
     @include text($color-text-dark);
     background-color: $color-avatar-bg;
     border: none;

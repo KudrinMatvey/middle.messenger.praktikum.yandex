@@ -1,4 +1,5 @@
 @import "src/scss/mixins";
+
 @import "src/scss/variables";
 
 $form-max-width: 400px;
@@ -8,6 +9,7 @@ $form-max-width: 400px;
 }
 
 .profile-form {
+
   @include center;
   max-width: $form-max-width;
   flex-direction: column;
@@ -20,6 +22,7 @@ $form-max-width: 400px;
   }
 
   > .name {
+
     @include text-bold($color-black);
     margin-bottom: $offset-xl;
   }
@@ -31,6 +34,7 @@ $form-max-width: 400px;
 
   > .image,
   &:after {
+
     @include size(130px);
     border-radius: 100%;
   }
@@ -56,6 +60,7 @@ $form-max-width: 400px;
     z-index: 100;
   }
 }
+
 .profile-actions {
   width: 100%;
 

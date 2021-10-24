@@ -1,4 +1,5 @@
 @import "../../../scss/mixins";
+
 @import "../../../scss/variables";
 
 $login-width: 300px;
@@ -8,6 +9,7 @@ $login-width: 300px;
 }
 
 .auth-page {
+
   @include center;
 
   > .authorization-wrapper {

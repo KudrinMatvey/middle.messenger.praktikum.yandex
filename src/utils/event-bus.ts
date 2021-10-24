@@ -15,7 +15,7 @@ export class EventBus<EventKey extends string = string> {
     }
 
     this.listeners[event] = this.listeners[event].filter(
-      listener => listener !== callback
+      (listener) => listener !== callback,
     );
   }
 
@@ -23,9 +23,9 @@ export class EventBus<EventKey extends string = string> {
     if (!this.listeners[event]) {
       throw new Error(`Нет события: ${event}`);
     }
-    console.log('Событие вызвано:', JSON.stringify({event, args}));
+    console.log('Событие вызвано:', JSON.stringify({ event, args }));
 
-    this.listeners[event].forEach(function(listener) {
+    this.listeners[event].forEach((listener) => {
       listener(...args);
     });
   }

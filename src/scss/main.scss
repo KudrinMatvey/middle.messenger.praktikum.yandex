@@ -1,20 +1,28 @@
-// fonts
-// font-family: 'Fira Sans', sans-serif 400, 700;
-// font-family: 'Nunito Sans', sans-serif 400, 700;
+/* font-family: 'Fira Sans', sans-serif 400, 700; */
+/* font-family: 'Nunito Sans', sans-serif 400, 700; */
+
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;700&family=Nunito+Sans:wght@400;700&display=swap");
 
-// Components
+/* Components */
+
 @import "src/components/button/button";
+
 @import "src/components/input/input";
+
 @import "src/components/chat-message/chat-message";
+
 @import "src/components/chat-preview/chat-preview";
+
 @import "src/components/link/link";
+
 @import "src/components/search/search";
 
-// Layout
+/* Layout */
+
 @import "layouts";
 
-// Other
+/* Other */
+
 @import "mixins";
 
 *,
@@ -31,5 +39,6 @@ body {
 }
 
 body {
+
   @include text();
 }

@@ -3,7 +3,7 @@ import { Block } from './block';
 class Button extends Block {
   constructor(props) {
     // Создаём враппер дом-элемент button
-    super("button", props);
+    super('button', props);
   }
 
   render() {
@@ -19,15 +19,15 @@ function render(query, block) {
 }
 
 const button = new Button({
-  text: "Click me",
+  text: 'Click me',
 });
 
 // app — это class дива в корне DOM
-render(".app", button);
+render('.app', button);
 
 // Через секунду контент изменится сам, достаточно обновить пропсы
 setTimeout(() => {
   button.setProps({
-    text: "Click me, please",
+    text: 'Click me, please',
   });
 }, 1000);

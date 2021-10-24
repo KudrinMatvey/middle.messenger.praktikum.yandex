@@ -1,4 +1,5 @@
 @import "src/scss/variables";
+
 @import "src/scss/mixins";
 
 $avatar-size: 36px;
@@ -26,7 +27,9 @@ $avatar-size: 36px;
     > .user-name {
       margin-right: auto;
     }
+
     > .user-avatar {
+
       @include size($avatar-size);
       flex: $avatar-size 0 0;
       border-radius: 100%;
@@ -59,6 +62,7 @@ $avatar-size: 36px;
     background-color: $color-light-bg;
 
     > .profile-link {
+
       @include text($color-text-dark);
       text-decoration: none;
     }
@@ -88,6 +92,7 @@ $avatar-size: 36px;
     }
 
     > .button {
+
       @include size(32px);
       font-size: 18px;
       font-weight: normal;

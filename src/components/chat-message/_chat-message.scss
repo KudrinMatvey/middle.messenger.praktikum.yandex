@@ -1,4 +1,5 @@
 @import "src/scss/variables";
+
 @import "src/scss/mixins";
 
 $message-max-width: min(410px, 70%);
@@ -24,6 +25,7 @@ $message-image-max-height: 400px;
   }
 
   .text {
+
     @include text($color-black);
   }
 
@@ -34,6 +36,7 @@ $message-image-max-height: 400px;
 
     flex-direction: row;
     justify-content: space-between;
+
     @include text($color-text-dark);
   }
 }

@@ -1,7 +1,9 @@
 @import "src/scss/mixins";
+
 @import "src/scss/variables";
 
 .search-field {
+
   @include text($color-text-dark);
   padding: 0 $offset-m;
   background-color: $color-avatar-bg;

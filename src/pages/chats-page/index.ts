@@ -159,6 +159,6 @@ const html = compiled({
 });
 const node = document.createElement('div');
 node.innerHTML = html;
-if(root) {
+if (root) {
   document.body.replaceChild(node, root);
 }

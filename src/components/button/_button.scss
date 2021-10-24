@@ -1,9 +1,11 @@
 @import "src/scss/variables";
+
 @import "src/scss/mixins";
 
 $button-padding: 12px;
 
 .button {
+
   @include text($color-tangerine);
   cursor: pointer;
 
@@ -25,7 +27,9 @@ $button-padding: 12px;
   }
 
   &.-icon {
+
     @include size(24px);
+
     @include center;
     padding: 0;
   }
