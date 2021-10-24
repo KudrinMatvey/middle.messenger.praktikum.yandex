@@ -1,7 +1,7 @@
 @import "src/scss/variables";
 @import "src/scss/mixins";
 
-$message-max-width: 400px;
+$message-max-width: min(410px, 70%);
 $message-image-max-height: 400px;
 
 .chat-message {

@@ -1,1 +1,1 @@
-export { registerSearch } from "./search";
+export { registerSearch } from './search';

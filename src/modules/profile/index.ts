@@ -1,1 +1,1 @@
-export { profilePageTemplate } from "./profile.template";
+export { profilePageTemplate } from './profile.template';

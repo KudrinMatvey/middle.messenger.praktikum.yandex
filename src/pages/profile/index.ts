@@ -1,12 +1,12 @@
-import { registerChatPreview } from "../../components/chat-preview";
-import { registerSearch } from "../../components/search";
-import { registerButton } from "../../components/button";
-import { registerDefaultValueHelper } from "../../utils";
-import { InputConfig, registerInput } from "../../components/input";
-import { registerChatMessage } from "../../components/chat-message";
-import { compile } from "handlebars";
-import { LinkConfig, registerLink } from "../../components/link";
-import { profilePageTemplate } from "../../modules/profile";
+import { compile } from 'handlebars';
+import { registerChatPreview } from '../../components/chat-preview';
+import { registerSearch } from '../../components/search';
+import { registerButton } from '../../components/button';
+import { registerDefaultValueHelper } from '../../utils';
+import { InputConfig, registerInput } from '../../components/input';
+import { registerChatMessage } from '../../components/chat-message';
+import { LinkConfig, registerLink } from '../../components/link';
+import { profilePageTemplate } from '../../modules/profile';
 
 interface ProfilePage {
   firstName: string;
@@ -16,22 +16,22 @@ interface ProfilePage {
 
 const stub: ProfilePage = {
   actions: [
-    { text: "Изменить Данные" },
-    { text: "Изменить Пароль", href: "profile-edit-password.html" },
-    { text: "Выйти", className: "-red" },
+    { text: 'Изменить Данные' },
+    { text: 'Изменить Пароль', href: 'profile-edit-password.html' },
+    { text: 'Выйти', className: '-red' },
   ],
   inputFields: [
-    { label: "Почта", name: "email" },
-    { label: "Логин", name: "login" },
-    { label: "Имя", name: "first_name" },
-    { label: "Фамилия", name: "second_name" },
-    { label: "Имя в чате", name: "display_name" },
-    { label: "Телефон", name: "phone" },
+    { label: 'Почта', name: 'email' },
+    { label: 'Логин', name: 'login' },
+    { label: 'Имя', name: 'first_name' },
+    { label: 'Фамилия', name: 'second_name' },
+    { label: 'Имя в чате', name: 'display_name' },
+    { label: 'Телефон', name: 'phone' },
   ],
-  firstName: "Иван",
+  firstName: 'Иван',
 };
 
-const body = document.getElementsByTagName("body");
+const body = document.getElementsByTagName('body');
 
 registerDefaultValueHelper();
 registerButton();

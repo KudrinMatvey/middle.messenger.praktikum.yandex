@@ -17,6 +17,9 @@ export const chatsPageTemplate = `
       {{> button sendButton}}
     </div>
     <div class="chat-header">
+      <img class="user-avatar -stub" src="">
+      <div class="user-name">{{ userName }}</div>
+      {{> button optionsButton}}
     </div>
     {{else}}
       Выберите чат чтобы отправить сообщение

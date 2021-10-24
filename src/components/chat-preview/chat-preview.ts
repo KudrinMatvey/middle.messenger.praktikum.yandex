@@ -1,4 +1,4 @@
-import { registerPartial } from "handlebars";
+import { registerPartial } from 'handlebars';
 
 export interface ChatPreviewConfig {
   message?: string;
@@ -9,10 +9,9 @@ export interface ChatPreviewConfig {
   unreadMessagesCount: number;
 }
 
-export const registerChatPreview = () =>
-  registerPartial(
-    "chat-preview",
-    `
+export const registerChatPreview = () => registerPartial(
+  'chat-preview',
+  `
   <div class="chat-preview">
     {{#if imageUrl}}
       <img class="user-avatar" src="{{imageUrl}}" alt=''">
@@ -30,5 +29,5 @@ export const registerChatPreview = () =>
         {{#if unreadMessagesCount}}<div class="unread-count">{{unreadMessagesCount}}</div>{{/if}}
     </div>
   </div>
-`
-  );
+`,
+);

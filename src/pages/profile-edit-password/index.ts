@@ -1,12 +1,12 @@
-import { registerChatPreview } from "../../components/chat-preview";
-import { registerSearch } from "../../components/search";
-import { registerButton } from "../../components/button";
-import { registerDefaultValueHelper } from "../../utils";
-import { InputConfig, registerInput } from "../../components/input";
-import { registerChatMessage } from "../../components/chat-message";
-import { compile } from "handlebars";
-import { LinkConfig, registerLink } from "../../components/link";
-import { profilePageTemplate } from "../../modules/profile";
+import { compile } from 'handlebars';
+import { registerChatPreview } from '../../components/chat-preview';
+import { registerSearch } from '../../components/search';
+import { registerButton } from '../../components/button';
+import { registerDefaultValueHelper } from '../../utils';
+import { InputConfig, registerInput } from '../../components/input';
+import { registerChatMessage } from '../../components/chat-message';
+import { LinkConfig, registerLink } from '../../components/link';
+import { profilePageTemplate } from '../../modules/profile';
 
 interface ProfilePage {
   firstName: string;
@@ -15,16 +15,16 @@ interface ProfilePage {
 }
 
 const stub: ProfilePage = {
-  actions: [{ text: "Сохранить" }, { text: "Назад", href: "profile.html" }],
+  actions: [{ text: 'Сохранить' }, { text: 'Назад', href: 'profile.html' }],
   inputFields: [
-    { label: "Старый пароль", name: "oldPassword" },
-    { label: "Новый пароль", name: "newPassword" },
-    { label: "Новый пароль (еще раз)", name: "repeatPassword" },
+    { label: 'Старый пароль', name: 'oldPassword' },
+    { label: 'Новый пароль', name: 'newPassword' },
+    { label: 'Новый пароль (еще раз)', name: 'repeatPassword' },
   ],
-  firstName: "Иван",
+  firstName: 'Иван',
 };
 
-const body = document.getElementsByTagName("body");
+const body = document.getElementsByTagName('body');
 
 registerDefaultValueHelper();
 registerButton();

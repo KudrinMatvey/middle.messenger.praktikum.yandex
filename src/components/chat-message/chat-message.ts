@@ -1,4 +1,4 @@
-import { registerPartial } from "handlebars";
+import { registerPartial } from 'handlebars';
 
 export interface ChatMessageConfig {
   message?: string;
@@ -8,10 +8,9 @@ export interface ChatMessageConfig {
   timeStamp: string;
 }
 
-export const registerChatMessage = () =>
-  registerPartial(
-    "chat-message",
-    `
+export const registerChatMessage = () => registerPartial(
+  'chat-message',
+  `
   <div class="chat-message {{#if isAuthor}} -own {{/if}}>">
     {{#if imageUrl}}
         <img class="image" src="{{imageUrl}}">
@@ -24,5 +23,5 @@ export const registerChatMessage = () =>
         <div class="timestamp">{{timeStamp}}</div>
     </div>
   </div>
-`
-  );
+`,
+);

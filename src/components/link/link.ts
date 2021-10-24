@@ -1,4 +1,4 @@
-import { registerPartial } from "handlebars";
+import { registerPartial } from 'handlebars';
 
 export interface LinkConfig {
   text: string;
@@ -6,12 +6,11 @@ export interface LinkConfig {
   href?: string;
 }
 
-export const registerLink = () =>
-  registerPartial(
-    "link",
-    `
+export const registerLink = () => registerPartial(
+  'link',
+  `
 <div class="link-wrapper">
   <a href="{{ defaultValue href '#' }}" class="link {{defaultValue className ''}}"> {{ text }}</a>
 </div>
-`
-  );
+`,
+);

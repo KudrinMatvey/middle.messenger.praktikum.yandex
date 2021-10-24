@@ -1,8 +1,8 @@
-import { compile } from "handlebars";
-import { loginTemplate } from "./login.template";
-import { ButtonConfig, registerButton } from "../../../components/button";
-import { InputConfig, registerInput } from "../../../components/input";
-import { registerDefaultValueHelper } from "../../../utils";
+import { compile } from 'handlebars';
+import { loginTemplate } from './login.template';
+import { ButtonConfig, registerButton } from '../../../components/button';
+import { InputConfig, registerInput } from '../../../components/input';
+import { registerDefaultValueHelper } from '../../../utils';
 
 interface LoginPage {
   loginButton: ButtonConfig;
@@ -11,7 +11,7 @@ interface LoginPage {
   passwordInput: InputConfig;
 }
 
-const body = document.getElementsByTagName("body");
+const body = document.getElementsByTagName('body');
 
 registerDefaultValueHelper();
 registerButton();
@@ -20,21 +20,21 @@ registerInput();
 const compiled = compile<LoginPage>(loginTemplate);
 const html = compiled({
   passwordInput: {
-    type: "password",
-    name: "password",
-    label: "Пароль",
+    type: 'password',
+    name: 'password',
+    label: 'Пароль',
   },
   registerButton: {
-    buttonText: "Нет аккаунта?",
+    buttonText: 'Нет аккаунта?',
   },
   loginButton: {
-    onClick: "loginFn()",
-    buttonText: "Войти",
-    className: "-primary",
+    onClick: 'loginFn()',
+    buttonText: 'Войти',
+    className: '-primary',
   },
   loginInput: {
-    label: "Логин",
-    name: "login",
+    label: 'Логин',
+    name: 'login',
   },
 });
 
