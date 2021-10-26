@@ -1,4 +1,3 @@
-import { v4 as uuid } from 'uuid';
 import { EventBus } from './event-bus';
 
 enum ComponentEvent {

@@ -30,6 +30,7 @@
     "eslint-plugin-import": "^2.25.2",
     "parcel": "^2.0.0",
     "parcel-reporter-static-files-copy": "^1.3.0",
+    "parcel-transformer-ts-css-modules": "^1.0.6",
     "stylelint": "^14.0.0",
     "stylelint-scss": "^4.0.0"
   },
