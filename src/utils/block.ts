@@ -17,9 +17,9 @@ export class Block<Props extends Object = Record<string, string>> {
 
   private _meta: {tagName: string; props: Props; display: 'block' | 'inline-block' | 'inline'};
 
-  private props: Props;
+  protected props: Props;
 
-  private _id: string = uuid();
+  private _id: string = `${this.constructor.name}-${Math.random().toString(16).slice(2)}`;
 
   get id(): string {
     return this._id;
@@ -65,7 +65,7 @@ export class Block<Props extends Object = Record<string, string>> {
     this.eventBus.on(ComponentEvent.INIT, this.init.bind(this));
     this.eventBus.on(ComponentEvent.FLOW_CDM, this._componentDidMount.bind(this));
     this.eventBus.on(ComponentEvent.FLOW_CDU, this._componentDidUpdate.bind(this));
-    this.eventBus.on(ComponentEvent.FLOW_RENDER, this._render.bind(this));
+    this.eventBus.on(ComponentEvent.FLOW_RENDER, this.render.bind(this));
   }
 
   private _createResources() {
@@ -81,7 +81,7 @@ export class Block<Props extends Object = Record<string, string>> {
 
   private _componentDidMount() {
     this.componentDidMount();
-    this._render();
+    this.render();
   }
 
   protected componentDidMount() {}
@@ -89,7 +89,7 @@ export class Block<Props extends Object = Record<string, string>> {
   private _componentDidUpdate(oldProps: Props, newProps: Props) {
     const response = this.componentDidUpdate(oldProps, newProps);
     if (response) {
-      this._render();
+      this.render();
     }
   }
 
@@ -97,12 +97,12 @@ export class Block<Props extends Object = Record<string, string>> {
     return oldProps !== newProps;
   }
 
-  private _render() {
-    const block = this.render();
+  render() {
+    const block = this.renderTemplate();
     this._element.innerHTML = block;
   }
 
-  protected render(): string {
+  protected renderTemplate(): string {
     return '';
   }
 

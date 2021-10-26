@@ -1,12 +1,17 @@
 import { Block } from './block';
+import { Page } from './page';
 
-class Button extends Block {
+class Button extends Block<{text: string; onClick: () => {}}> {
   constructor(props) {
-    // Создаём враппер дом-элемент button
     super('button', props);
+    this.element.onclick = this.onClick.bind(this);
   }
 
-  render() {
+  onClick() {
+    this.props?.onClick?.()
+  }
+
+  renderTemplate() {
     // В проекте должен быть ваш собственный шаблонизатор
     return `<div>${this.props.text}</div>`;
   }
@@ -14,20 +19,33 @@ class Button extends Block {
 
 function render(query, block) {
   const root = document.querySelector(query);
+  root.innerHTML = ``;
   root.appendChild(block.getContent());
   return root;
 }
 
 const button = new Button({
   text: 'Click me',
+  onClick: () => alert('hlleoj')
 });
 
+const page = new Page('div', {children: {'button-test': button}});
+
 // app — это class дива в корне DOM
-render('.app', button);
+render('.app', page);
 
 // Через секунду контент изменится сам, достаточно обновить пропсы
 setTimeout(() => {
   button.setProps({
     text: 'Click me, please',
   });
-}, 1000);
+}, 1000);setTimeout(() => {
+  button.setProps({
+    text: 'Click me, please',
+  });
+}, 3000);setTimeout(() => {
+  button.setProps({
+    text: 'Click me',
+    onClick: () => alert('hlleoj')
+  });
+}, 4000);
