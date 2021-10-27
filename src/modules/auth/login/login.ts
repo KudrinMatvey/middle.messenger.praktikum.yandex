@@ -1,41 +1,49 @@
-import { compile } from 'handlebars';
 import { loginTemplate } from './login.template';
-import { ButtonConfig, registerButton } from '../../../components/button';
-import { InputConfig, registerInput } from '../../../components/input';
+import { Button } from '../../../components/button';
 import { registerDefaultValueHelper } from '../../../utils';
+import { Page } from '../../../pages/shared/page';
+import { render } from '../../../utils/render';
+import { Input } from '../../../components/input/input';
 
-interface LoginPage {
-  loginButton: ButtonConfig;
-  registerButton: ButtonConfig;
-  loginInput: InputConfig;
-  passwordInput: InputConfig;
+interface LoginPageProps {
+  loginButton: Button;
+  registerButton: Button;
+  loginInput: Input;
+  passwordInput: Input;
 }
-
-const body = document.getElementsByTagName('body');
-
 registerDefaultValueHelper();
-registerButton();
-registerInput();
 
-const compiled = compile<LoginPage>(loginTemplate);
-const html = compiled({
-  passwordInput: {
-    type: 'password',
-    name: 'password',
-    label: 'Пароль',
-  },
-  registerButton: {
-    buttonText: 'Нет аккаунта?',
-  },
-  loginButton: {
-    onClick: 'loginFn()',
-    buttonText: 'Войти',
-    className: '-primary',
-  },
-  loginInput: {
-    label: 'Логин',
-    name: 'login',
-  },
+class LoginPage extends Page<{}, LoginPageProps> {
+  get className(): string {
+    return '';
+  }
+
+  get template(): string {
+    return loginTemplate;
+  }
+}
+const registerButton = new Button({
+  buttonText: 'Нет аккаунта?',
+});
+const passwordInput = new Input({
+  type: 'password',
+  name: 'password',
+  label: 'Пароль',
+});
+const loginInput = new Input({
+  label: 'Логин',
+  name: 'login',
+})
+const loginButton = new Button({
+  onClick: () => console.log({password: passwordInput.value, login: loginInput.value}),
+  buttonText: 'Войти',
+  className: '-primary',
 });
 
-body[0].innerHTML = html;
+
+const login = new LoginPage('div', {
+  ownProps: {},
+  children: {loginButton, registerButton, passwordInput, loginInput}
+});
+
+render('body', login)

@@ -1,2 +1,2 @@
 export { registerInput } from './input';
-export type { InputConfig } from './input';
+export type { InputProps } from './input';

@@ -3,14 +3,14 @@ import { registerChatPreview } from '../../components/chat-preview';
 import { registerSearch } from '../../components/search';
 import { registerButton } from '../../components/button';
 import { registerDefaultValueHelper } from '../../utils';
-import { InputConfig, registerInput } from '../../components/input';
+import { InputProps, registerInput } from '../../components/input';
 import { registerChatMessage } from '../../components/chat-message';
 import { LinkConfig, registerLink } from '../../components/link';
 import { profilePageTemplate } from '../../modules/profile';
 
 interface ProfilePage {
   firstName: string;
-  inputFields: InputConfig[];
+  inputFields: InputProps[];
   actions: LinkConfig[];
 }
 

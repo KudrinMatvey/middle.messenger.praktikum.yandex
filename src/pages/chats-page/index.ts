@@ -1,7 +1,7 @@
 import { compile } from 'handlebars';
 import { registerDefaultValueHelper } from '../../utils';
 import { ButtonConfig, registerButton } from '../../components/button';
-import { InputConfig, registerInput } from '../../components/input';
+import { InputProps, registerInput } from '../../components/input';
 import { registerChatMessage } from '../../components/chat-message';
 import { chatsPageTemplate } from './chats-page.template';
 import { renderChatHistory } from '../../modules/chats/chat-history';
@@ -15,7 +15,7 @@ interface ChatsPage {
   sendButton: ButtonConfig;
   optionsButton: ButtonConfig;
   userName: string;
-  messageInput: InputConfig;
+  messageInput: InputProps;
   attachButton: ButtonConfig;
 }
 

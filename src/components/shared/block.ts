@@ -1,4 +1,5 @@
-import { EventBus } from './event-bus';
+import { EventBus } from '../../utils';
+import { compile } from 'handlebars';
 
 enum ComponentEvent {
   INIT = 'init',
@@ -7,12 +8,15 @@ enum ComponentEvent {
   FLOW_RENDER = 'flow:render',
 }
 
-export class Block<Props extends Object = Record<string, string>> {
-  private _element: HTMLElement;
+export abstract class Block<Props extends Object = Record<string, any>, TemplateProps = Props> {
+  abstract get className(): string;
+  abstract get template(): string;
 
+  private _element: HTMLElement;
   get element(): HTMLElement {
     return this._element;
   }
+  protected compiledTemplate: HandlebarsTemplateDelegate<Props | TemplateProps>;
 
   private _meta: {tagName: string; props: Props; display: 'block' | 'inline-block' | 'inline'};
 
@@ -33,7 +37,6 @@ export class Block<Props extends Object = Record<string, string>> {
       props,
       display,
     };
-
     this.props = this._makePropsProxy(props);
 
     this._registerEvents();
@@ -74,6 +77,7 @@ export class Block<Props extends Object = Record<string, string>> {
   }
 
   private init() {
+    this.compiledTemplate = compile<Props>(this.template);
     this._createResources();
     this.eventBus.emit(ComponentEvent.FLOW_CDM);
   }
@@ -97,12 +101,13 @@ export class Block<Props extends Object = Record<string, string>> {
   }
 
   render() {
-    const block = this.renderTemplate();
+    const block = this.renderTemplate(this.props);
+    this.element.className = this.className;
     this._element.innerHTML = block;
   }
 
-  protected renderTemplate(): string {
-    return '';
+  protected renderTemplate(props: Props | TemplateProps): string {
+    return this.compiledTemplate(props);
   }
 
   protected _makePropsProxy(props: Props): Props {

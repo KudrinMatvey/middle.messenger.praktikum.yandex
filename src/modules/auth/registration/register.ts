@@ -1,18 +1,18 @@
 import { compile } from 'handlebars';
 import { registerTemplate } from './register.template';
 import { ButtonConfig, registerButton } from '../../../components/button';
-import { InputConfig, registerInput } from '../../../components/input';
+import { InputProps, registerInput } from '../../../components/input';
 import { registerDefaultValueHelper } from '../../../utils';
 
 interface RegisterPage {
   registerButton: ButtonConfig;
-  firstNameInput: InputConfig;
-  secondNameInput: InputConfig;
-  loginInput: InputConfig;
-  emailInput: InputConfig;
-  passwordInput: InputConfig;
-  repeatPasswordInput: InputConfig;
-  phoneInput: InputConfig;
+  firstNameInput: InputProps;
+  secondNameInput: InputProps;
+  loginInput: InputProps;
+  emailInput: InputProps;
+  passwordInput: InputProps;
+  repeatPasswordInput: InputProps;
+  phoneInput: InputProps;
 }
 
 const body = document.getElementsByTagName('body');
