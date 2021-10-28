@@ -1,25 +1,24 @@
 import { Block } from '../../components/shared/block';
 
-export interface PageProps<Props, Children> {
-  children: Children,
-  ownProps: Props;
-}
+export abstract class Page<Props, Children> extends Block<Props> {
+  children: Children;
 
-export abstract class Page<OwnProps, Children> extends Block<PageProps<OwnProps, Children>, OwnProps> {
-  render() {
-    super.render();
+  abstract buildChildren(): Children;
+
+  protected componentDidRender() {
     this.renderChildren();
   }
 
-  protected renderTemplate(props: PageProps<OwnProps>): string {
-    return super.renderTemplate(props.ownProps);
+  protected componentDidMount() {
+    this.children = this.buildChildren();
   }
 
   private renderChildren() {
-    Object.entries(this.props.children).forEach(([key, value]) => {
-      const toReplace = this.element.querySelector(`#${key}`);
+    Object.entries(this.children).forEach(([key, value]) => {
+      const toReplace = this.element.querySelector(`#${ key }`);
       const component = this.element.appendChild(value.getContent());
       toReplace?.parentElement?.replaceChild(component, toReplace);
     });
   }
 }
+

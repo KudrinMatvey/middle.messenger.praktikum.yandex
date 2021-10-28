@@ -43,4 +43,8 @@ $input-height: 20px;
     background-color: $color-avatar-bg;
     border: none;
   }}
+
+  .error-message {
+    @include text($color-red, $font-size-s);
+  }
 }

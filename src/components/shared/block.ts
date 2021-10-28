@@ -5,10 +5,11 @@ enum ComponentEvent {
   INIT = 'init',
   FLOW_CDM = 'flow:component-did-mount',
   FLOW_CDU = 'flow:component-did-update',
+  FLOW_CDR = 'flow:component-did-render',
   FLOW_RENDER = 'flow:render',
 }
 
-export abstract class Block<Props extends Object = Record<string, any>, TemplateProps = Props> {
+export abstract class Block<Props extends Object = Record<string, any>> {
   abstract get className(): string;
   abstract get template(): string;
 
@@ -16,7 +17,7 @@ export abstract class Block<Props extends Object = Record<string, any>, Template
   get element(): HTMLElement {
     return this._element;
   }
-  protected compiledTemplate: HandlebarsTemplateDelegate<Props | TemplateProps>;
+  protected compiledTemplate: HandlebarsTemplateDelegate<Props>;
 
   private _meta: {tagName: string; props: Props; display: 'block' | 'inline-block' | 'inline'};
 
@@ -68,6 +69,7 @@ export abstract class Block<Props extends Object = Record<string, any>, Template
     this.eventBus.on(ComponentEvent.FLOW_CDM, this._componentDidMount.bind(this));
     this.eventBus.on(ComponentEvent.FLOW_CDU, this._componentDidUpdate.bind(this));
     this.eventBus.on(ComponentEvent.FLOW_RENDER, this.render.bind(this));
+    this.eventBus.on(ComponentEvent.FLOW_CDR, this.componentDidRender.bind(this));
   }
 
   private _createResources() {
@@ -104,9 +106,12 @@ export abstract class Block<Props extends Object = Record<string, any>, Template
     const block = this.renderTemplate(this.props);
     this.element.className = this.className;
     this._element.innerHTML = block;
+    this.eventBus.emit(ComponentEvent.FLOW_CDR);
   }
 
-  protected renderTemplate(props: Props | TemplateProps): string {
+  protected componentDidRender() {}
+
+  protected renderTemplate(props: Props): string {
     return this.compiledTemplate(props);
   }
 

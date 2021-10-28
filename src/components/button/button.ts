@@ -5,6 +5,7 @@ export interface ButtonConfig {
   onClick?: () => any;
   buttonText?: string;
   icon?: string;
+  type?: 'submit' | 'reset';
   className?: string;
 }
 
@@ -21,7 +22,13 @@ export const registerButton = () => registerPartial(
 export class Button extends Block<ButtonConfig> {
   constructor(props: ButtonConfig) {
     super('button', props);
+  }
+
+  protected componentDidMount() {
     this.element.onclick = this.onClick.bind(this);
+    if(this.props.type) {
+      (this.element as HTMLButtonElement).type = this.props.type;
+    }
   }
 
   onClick() {
