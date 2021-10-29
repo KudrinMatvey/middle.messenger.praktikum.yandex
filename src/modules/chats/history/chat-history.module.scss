@@ -5,7 +5,7 @@
 $message-max-width: min(410px, 70%);
 $message-image-max-height: 400px;
 
-.chat-message {
+.chatMessage {
   background-color: $color-card-bg;
   color: black;
   padding: $offset-s;
@@ -13,7 +13,7 @@ $message-image-max-height: 400px;
   border-radius: $border-radius-sm;
   max-width: $message-max-width;
 
-  &.-own {
+  &.own {
     background-color: $color-misty-rose;
     margin: $offset-m $offset-m $offset-s auto;
   }
@@ -33,7 +33,6 @@ $message-image-max-height: 400px;
     margin-top: $offset-s;
     display: flex;
     font-size: $font-size-s;
-
     flex-direction: row;
     justify-content: space-between;
 

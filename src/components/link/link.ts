@@ -1,4 +1,5 @@
 import { Block } from '../shared/block';
+import * as styles from './link.module.scss'
 
 export interface LinkProps {
   text: string;
@@ -14,7 +15,7 @@ export class Link extends Block<LinkProps> {
   }
 
   get className(): string {
-    return 'link-wrapper';
+    return [styles.linkWrapper, this.props.className].filter(Boolean).join(' ');
   }
 
   constructor(props: LinkProps) {
@@ -30,6 +31,6 @@ export class Link extends Block<LinkProps> {
   }
 
   get template(): string {
-    return '<a href="{{ defaultValue href \'#\' }}" class="link {{defaultValue className \'\'}}"> {{ text }}</a>';
+    return `<a href="{{ defaultValue href \'#\' }}" class="${styles.link} {{defaultValue  \'\'}}"> {{ text }}</a>`;
   }
 }

@@ -7,14 +7,12 @@ $button-padding: 12px;
 .button {
 
   @include text($color-tangerine);
-  cursor: pointer;
 
+  cursor: pointer;
   width: 100%;
   padding: $button-padding;
   border: 0;
-
   border-radius: $border-radius-sm;
-
   background-color: $color-text-light;
 
   &.primary {
@@ -31,6 +29,7 @@ $button-padding: 12px;
     @include size(24px);
 
     @include center;
+
     padding: 0;
   }
 

@@ -1,20 +1,22 @@
+import * as styles from './chats-list.module.scss';
+
 export const chatsListTemplate = `
   {{#each chatPreviews}}
-    <div class="chat-preview">
+    <div class="${styles.chatPreview}">
     {{#if imageUrl}}
-      <img class="user-avatar" src="{{imageUrl}}" alt=''">
+      <img class="${styles.userAvatar}" src="{{imageUrl}}" alt=''">
     {{else}}
-      <div class="user-avatar -stub"></div>
+      <div class="${styles.userAvatar} ${styles.stub}"></div>
     {{/if}}
-    <div class="message-content">
-        <div class="author">{{name}}</div>
-        <div class="last-message"> {{#if isAuthor}}<b> Вы: </b>{{/if}} {{message}} </div>
+    <div class="${styles.messageContent}">
+        <div class="${styles.author}">{{name}}</div>
+        <div class="${styles.lastMessage}"> {{#if isAuthor}}<b> Вы: </b>{{/if}} {{message}} </div>
     </div>
-    <div class="info">
-        <div class="timestamp">
+    <div class="${styles.info}">
+        <div>
         {{timeStamp}}
         </div>
-        {{#if unreadMessagesCount}}<div class="unread-count">{{unreadMessagesCount}}</div>{{/if}}
+        {{#if unreadMessagesCount}}<div class="${styles.unreadCount}">{{unreadMessagesCount}}</div>{{/if}}
     </div>
   </div>
   {{/each}}

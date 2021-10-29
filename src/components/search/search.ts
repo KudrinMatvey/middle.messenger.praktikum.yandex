@@ -1,8 +1,10 @@
 import { Block } from '../shared/block';
+import * as styles from './search.module.scss'
 
 export interface SearchProps {
   searchFn: (str: string) => unknown;
   placeholder: string;
+  className?: string;
 }
 export class Search extends Block<SearchProps> {
   constructor(props: SearchProps) {
@@ -10,7 +12,7 @@ export class Search extends Block<SearchProps> {
   }
 
   get className(): string {
-    return 'search-field';
+    return [this.props.className, styles.searchField].filter(Boolean).join(' ');
   }
 
   get element(): HTMLInputElement {

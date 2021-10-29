@@ -1,13 +1,10 @@
 import { loginTemplate } from './login.template';
-import { Button } from '../../../components/button';
+import { Button, buttonStyles } from '../../../components/button';
 import { Page } from '../../../pages/shared/page';
 import { Input } from '../../../components/input';
 import { initializeForm } from '../../../utils/initialize-form';
 import { loginValidator, passwordValidator } from '../../../utils/validators';
-import * as styles from './login.module.scss'
-import * as buttonStyles from '../../../components/button/button.module.scss'
-
-console.log({styles, buttonStyles})
+import { authStyles } from '../shared';
 
 export interface LoginPageChildren {
   loginButton: Button;
@@ -18,7 +15,7 @@ export interface LoginPageChildren {
 
 export class LoginPage extends Page<{}, LoginPageChildren> {
   get className(): string {
-    return 'h-100';
+    return authStyles.authPage;
   }
 
   get template(): string {
@@ -41,14 +38,14 @@ export class LoginPage extends Page<{}, LoginPageChildren> {
     const passwordInput = new Input({
       type: 'password',
       name: 'password',
-      className: styles.inputField,
+      className: authStyles.inputField,
       validationFn: passwordValidator,
       label: 'Пароль',
     });
     const loginInput = new Input({
       label: 'Логин',
       required: true,
-      className: styles.inputField,
+      className: authStyles.inputField,
       validationFn: loginValidator,
       name: 'login',
     });
@@ -57,7 +54,7 @@ export class LoginPage extends Page<{}, LoginPageChildren> {
       type: 'submit',
       className: [
         buttonStyles.primary,
-        styles.actionButton
+        authStyles.actionButton
       ].join(' ')
     });
     return {

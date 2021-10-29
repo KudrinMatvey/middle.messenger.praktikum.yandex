@@ -11,6 +11,7 @@ $input-height: 20px;
   > .label {
 
     @include text($color-text-grey, $font-size-xs);
+
     display: block;
     position: absolute;
     top: -12px;
@@ -23,7 +24,7 @@ $input-height: 20px;
     width: 100%;
   }
 
-  input:placeholder-shown:not(.-no-label) + .label {
+  input:placeholder-shown:not(.noLabel) + .label {
     display: none;
   }
 
@@ -41,6 +42,7 @@ $input-height: 20px;
     > .input {
 
       @include text($color-text-dark);
+
       background-color: $color-avatar-bg;
       border: none;
     }

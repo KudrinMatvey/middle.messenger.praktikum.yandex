@@ -11,6 +11,9 @@ import {
 import { Input } from '../../../components/input';
 import { initializeForm } from '../../../utils/initialize-form';
 import { Page } from '../../../pages/shared/page';
+import { authStyles } from '../shared';
+import { buttonStyles } from '../../../components/button';
+
 
 interface RegisterPageChildren {
   registerButton: Button;
@@ -25,7 +28,7 @@ interface RegisterPageChildren {
 
 export class RegisterPage extends Page<{}, RegisterPageChildren> {
   get className(): string {
-    return 'h-100';
+    return authStyles.authPage;
   }
 
   get template(): string {
@@ -45,44 +48,51 @@ export class RegisterPage extends Page<{}, RegisterPageChildren> {
     const loginInput = new Input({
       name: 'login',
       validationFn: loginValidator,
+      className: authStyles.inputField,
       label: 'Логин',
     });
     const emailInput = new Input({
       name: 'email',
       validationFn: emailValidator,
+      className: authStyles.inputField,
       label: 'Почта',
     });
     const firstNameInput = new Input({
       name: 'first_name',
       validationFn: nameValidator,
+      className: authStyles.inputField,
       label: 'Имя',
     });
     const secondNameInput = new Input({
       name: 'second_name',
       validationFn: nameValidator,
+      className: authStyles.inputField,
       label: 'Фамилия',
     });
     const passwordInput = new Input({
       name: 'password',
       type: 'password',
       validationFn: passwordValidator,
+      className: authStyles.inputField,
       label: 'Пароль',
     });
     const repeatPasswordInput = new Input({
       type: 'password',
       validationFn: passwordRepeatValidator(passwordInput),
+      className: authStyles.inputField,
       label: 'Пароль (еще раз)',
     });
     const phoneInput = new Input({
       name: 'phone',
       type: 'tel',
       validationFn: phoneValidator,
+      className: authStyles.inputField,
       label: 'Телефон',
     });
     const registerButton = new Button({
       buttonText: 'Зарегистрироваться',
       type: 'submit',
-      className: '-primary',
+      className: buttonStyles.primary,
     });
     return {
       loginInput,

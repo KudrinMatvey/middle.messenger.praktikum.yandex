@@ -1,6 +1,5 @@
 import { chatsHistoryTemplate } from './chat.history.template';
 import { Block } from '../../../components/shared/block';
-import * as styles from './chat-history.module.scss'
 
 export interface ChatMessageConfig {
   message?: string;
@@ -12,7 +11,7 @@ export interface ChatMessageConfig {
 
 export class ChatHistoryComponent extends Block<{messages: ChatMessageConfig[]}> {
   get className(): string {
-    return styles;
+    return '';
   }
 
   get template(): string {

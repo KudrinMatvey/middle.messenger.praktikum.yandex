@@ -1,15 +1,17 @@
+import * as styles from './chat-history.module.scss'
+
 export const chatsHistoryTemplate = `
 {{#each messages}}
-    <div class="chat-message {{#if isAuthor}} -own {{/if}}>">
+    <div class="${styles.chatMessage} {{#if isAuthor}} ${styles.own} {{/if}}>">
     {{#if imageUrl}}
-        <img class="image" src="{{imageUrl}}">
+        <img class="${styles.image}" src="{{imageUrl}}">
     {{/if}}
     {{#if message}}
-        <span class="text">{{message}}</span>
+        <span class="${styles.text}">{{message}}</span>
     {{/if}}
-    <div class="info">
-        <div class="username">{{defaultValue userName ''}}</div>
-        <div class="timestamp">{{timeStamp}}</div>
+    <div class="${styles.info}">
+        <div>{{defaultValue userName ''}}</div>
+        <div>{{timeStamp}}</div>
     </div>
   </div>
 {{/each}}

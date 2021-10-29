@@ -1,11 +1,12 @@
+@use "sass:color";
 @import "../../../scss/mixins";
-
 @import "../../../scss/variables";
 
 $login-width: 300px;
 
 .authPage {
   height: 100%;
+
   @include center;
 }
 
@@ -15,10 +16,8 @@ $login-width: 300px;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-
-  box-shadow: 0 0 6px rgba($color-black, 0.14);
+  box-shadow: 0 0 6px color.adjust($color-black, $alpha: -0.86);
   border-radius: $border-radius-m;
-
   padding: $offset-m;
 }
 

@@ -2,38 +2,39 @@
 
 @import "src/scss/mixins";
 
-
 $flex-basis: 50px;
 $avatar-size: 36px;
 
-.chat-preview {
+.chatPreview {
   display: flex;
   flex-direction: row;
   padding: $offset-s;
   border-top: 1px solid $color-card-border;
 
-  > .user-avatar {
+  > .userAvatar {
 
     @include size($avatar-size);
+
     flex: $avatar-size 0 0;
     border-radius: 100%;
     margin-right: $offset-m;
 
-    &.-stub {
+    &.stub {
       background-color: $color-avatar-bg;
     }
   }
 
-  > .message-content {
+  > .messageContent {
     flex-grow: 1;
 
     > .author {
 
       @include title;
+
       padding-bottom: $offset-m;
     }
 
-    > .last-message {
+    > .lastMessage {
 
       @include ellipsis;
     }
@@ -41,19 +42,19 @@ $avatar-size: 36px;
 
   > .info {
     flex: $flex-basis 0 0;
-
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
 
-    > .unread-count {
+    > .unreadCount {
 
       @include text($color-white, $font-size-s);
 
       @include size(16px);
 
-      @include center();
+      @include center;
+
       border-radius: 100px;
       background-color: $color-red;
     }

@@ -12,7 +12,9 @@ export interface InputProps {
 }
 
 export class Input extends Block<InputProps> implements FormField {
-  private errorMessageElement: HTMLSpanElement;
+  private get errorMessageElement(): HTMLSpanElement {
+    return <HTMLSpanElement> this.element.querySelector('.' + styles.errorMessage);
+  };
 
   constructor(props: InputProps) {
     super('label', props, 'inline-block');
@@ -27,7 +29,7 @@ export class Input extends Block<InputProps> implements FormField {
   }
 
   get spanElement(): HTMLSpanElement {
-    return <HTMLSpanElement> this.element.querySelector('span.label');
+    return <HTMLSpanElement> this.element.querySelector(`.${styles.label}`);
   }
 
   get value(): string | undefined {
@@ -41,7 +43,6 @@ export class Input extends Block<InputProps> implements FormField {
   protected componentDidRender() {
     this.inputElement.onblur = () => this.validate();
     this.inputElement.onfocus = () => this.validate();
-    this.errorMessageElement = <HTMLSpanElement> this.element.querySelector('.error-message');
   }
 
   get template(): string {

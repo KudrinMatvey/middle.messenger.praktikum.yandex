@@ -2,9 +2,10 @@
 
 @import "src/scss/variables";
 
-.search-field {
+.searchField {
 
   @include text($color-text-dark);
+
   padding: 0 $offset-m;
   background-color: $color-avatar-bg;
   border: none;

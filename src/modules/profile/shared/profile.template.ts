@@ -1,26 +1,24 @@
+import * as styles from './profile.module.scss';
+
 export const profilePageTemplate = `
-  <div class="profile-page page-with-back">
-    <div class="back">
+    <div class="${styles.pageBack}">
       <div id="backButton"></div>
     </div>
-    <div class="content">
-      <form class="profile-form">
-        <div class="edit-avatar">
-          <img class="image" src="{{ defaultValue avatarUrl 'img/no-avatar.svg'}}" alt="">
-          <input class="input" type="file" name="avatar">
+    <div class="${styles.pageContent}">
+      <form class="${styles.profileForm}">
+        <div class="${styles.editAvatar}">
+          <img class="${styles.image}" src="{{ defaultValue avatarUrl 'img/no-avatar.svg'}}" alt="">
+          <input class="${styles.imageInput}" type="file" name="avatar">
         </div>
-        <h2 class="name">{{ firstName }}</h2>
+        <h2 class="${styles.name}">{{ firstName }}</h2>
         {{#each fieldIds}} 
           <div id="{{this}}"></div>
         {{/each}}
-        <div class="profile-actions">
+        <div class="${styles.profileActions}">
           {{#each actionIds}} 
-            <div class="action">
              <div id="{{this}}"></div>
-            </div>
           {{/each}}        
         </div>
       </form>
     </div>
-  </div>
 `;
