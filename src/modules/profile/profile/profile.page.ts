@@ -1,13 +1,11 @@
-import { ProfilePageChildren, ProfilePageProps } from '../../modules/profile/profile-page.interfaces';
-import { Input } from '../../components/input';
-import {
-  emailValidator, loginValidator, nameValidator, phoneValidator,
-} from '../../utils/validators';
-import { Button } from '../../components/button';
-import { Link } from '../../components/link';
-import { profilePageTemplate } from '../../modules/profile';
-import { initializeForm } from '../../utils/initialize-form';
-import { Page } from '../shared/page';
+import { ProfilePageChildren, ProfilePageProps } from '../shared/profile-page.interfaces';
+import { emailValidator, loginValidator, nameValidator, phoneValidator } from '../../../utils/validators';
+import { Input } from '../../../components/input';
+import { Button } from '../../../components/button';
+import { profilePageTemplate } from '../shared';
+import { initializeForm } from '../../../utils/initialize-form';
+import { Page } from '../../../pages/shared/page';
+import { Link } from '../../../components/link';
 
 export class ProfilePage extends Page<ProfilePageProps, ProfilePageChildren> {
   buildChildren(): ProfilePageChildren {

@@ -1,6 +1,7 @@
+import * as styles from '../shared/auth.module.scss'
 export const loginTemplate = `
-<div class="auth-page">
-    <form class="authorization-wrapper">
+<div class="${styles.}">
+    <form class="${styles.authorizationWrapper}">
         <h3 class="header">Вход</h3>
         <div id="loginInput"></div>
         <div id="passwordInput"></div>

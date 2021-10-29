@@ -1,6 +1,6 @@
-import { registerDefaultValueHelper } from '../../utils';
+import { registerDefaultValueHelper } from '../../../utils';
 import { ProfilePage } from './profile.page';
-import { render } from '../../utils/render';
+import { render } from '../../../utils/render';
 
 registerDefaultValueHelper();
 

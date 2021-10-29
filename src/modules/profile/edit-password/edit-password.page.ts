@@ -1,13 +1,13 @@
-import { Page } from '../shared/page';
-import { ProfilePageChildren, ProfilePageProps } from '../../modules/profile/profile-page.interfaces';
-import { Input } from '../../components/input/input';
-import { Link } from '../../components/link';
-import { profilePageTemplate } from '../../modules/profile';
-import { initializeForm } from '../../utils/initialize-form';
-import { passwordRepeatValidator, passwordValidator } from '../../utils/validators';
-import { Button } from '../../components/button';
+import { ProfilePageChildren, ProfilePageProps } from '../shared/profile-page.interfaces';
+import { Input } from '../../../components/input';
+import { passwordRepeatValidator, passwordValidator } from '../../../utils/validators';
+import { Button } from '../../../components/button';
+import { profilePageTemplate } from '../shared';
+import { initializeForm } from '../../../utils/initialize-form';
+import { Page } from '../../../pages/shared/page';
+import { Link } from '../../../components/link';
 
-export class ProfileEditPasswordPage extends Page<ProfilePageProps, ProfilePageChildren> {
+export class EditPasswordPage extends Page<ProfilePageProps, ProfilePageChildren> {
   buildChildren(): ProfilePageChildren {
     const oldPassword = new Input({ label: 'Старый пароль', type: 'password', name: 'oldPassword' });
     const newPassword = new Input({
