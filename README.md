@@ -17,13 +17,15 @@
 
 - `npm install` — установка стабильной версии,
 - `npm run dev` — запуск версии для разработчика,
+- `npm run lint` — запуск линтинга.
+- `npm run tsm` — вспомогательная команда для сборки типов для scss модулей.
 - `npm run build` — сборка стабильной версии.
 - `npm run start` — запуск локального сервера для раздачи собранной стабильной версии.
 
 ## Используемые технологии
  - Шаблонизатор [hanldlebars](https://handlebarsjs.com/)  
- - Сборщик [parcel 2](https://parceljs.org/)  
+ - Сборщик [parcel 2](https://parceljs.org/)
 
 ## Особенности 
-Для организации верстки выбрана [rscss](https://rscss.io/)
+Для организации верстки выбрана [rscss](https://rscss.io/) в сочетании с [scss-modules](https://css-tricks.com/introducing-sass-modules/#:~:text=There%20are%20several%20built%2Din,'%3B%20%24half%3A%20math.)
 
