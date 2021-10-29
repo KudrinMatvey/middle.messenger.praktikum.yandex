@@ -1,4 +1,3 @@
-import { registerPartial } from 'handlebars';
 import { Block } from '../shared/block';
 
 export interface ButtonConfig {
@@ -9,16 +8,6 @@ export interface ButtonConfig {
   className?: string;
 }
 
-export const registerButton = () => registerPartial(
-  'button',
-  `
-  <button class="{{defaultValue className ' '}} button" href="#" onclick="{{onClick}}">
-    {{defaultValue buttonText ''}}
-    {{#if icon}}<img src="{{ icon }}" alt="">{{/if}}
-   </button>
-`,
-);
-
 export class Button extends Block<ButtonConfig> {
   constructor(props: ButtonConfig) {
     super('button', props);
@@ -26,17 +15,26 @@ export class Button extends Block<ButtonConfig> {
 
   protected componentDidMount() {
     this.element.onclick = this.onClick.bind(this);
-    if(this.props.type) {
-      (this.element as HTMLButtonElement).type = this.props.type;
-    }
+    this.element.type = this.props.type ?? 'button';
+  }
+
+  get element(): HTMLButtonElement {
+    return this._element as HTMLButtonElement;
+  }
+
+  protected componentDidUpdate(oldProps: ButtonConfig, newProps: ButtonConfig): boolean {
+    this.element.type = newProps.type ?? 'button';
+    return oldProps.buttonText !== newProps.buttonText
+          || oldProps.icon !== newProps.icon
+          || oldProps.className !== newProps.className;
   }
 
   onClick() {
-    this.props?.onClick?.()
+    this.props?.onClick?.();
   }
 
   get className(): string {
-    return [this.props?.className,'button'].filter(Boolean).join(' ');
+    return [this.props?.className, 'button'].filter(Boolean).join(' ');
   }
 
   get template() {

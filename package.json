@@ -6,7 +6,7 @@
     "start": "node index.js",
     "dev": "parcel static/index.html",
     "eslint": "eslint **/*.ts --fix",
-    "stylelint": "stylelint **/*.scss --fix",
+    "stylelint": "stylelint **/*.scss --fix customSyntax=scss",
     "build": "parcel build static/index.html"
   },
   "staticFiles": {
@@ -32,7 +32,8 @@
     "parcel-reporter-static-files-copy": "^1.3.0",
     "parcel-transformer-ts-css-modules": "^1.0.6",
     "stylelint": "^14.0.0",
-    "stylelint-scss": "^4.0.0"
+    "stylelint-scss": "^4.0.0",
+    "typescript": "^4.4.4"
   },
   "dependencies": {
     "express": "^4.17.1",

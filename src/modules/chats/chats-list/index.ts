@@ -1,1 +1,1 @@
-export { renderChatList } from './chats-list';
+export { ChatListComponent } from './chats-list';

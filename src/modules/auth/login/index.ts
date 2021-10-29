@@ -4,4 +4,4 @@ import { LoginPage } from './login.page';
 
 registerDefaultValueHelper();
 const loginPage = new LoginPage();
-render('body', loginPage)
+render('body', loginPage);

@@ -2,6 +2,9 @@
 
 @import "src/scss/mixins";
 
+@import "src/modules/chats/chat-history/chat-history.module";
+@import "src/modules/chats/chats-list/chats-list.module";
+
 $avatar-size: 36px;
 
 .chats-page {

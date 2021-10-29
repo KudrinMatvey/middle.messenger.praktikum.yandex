@@ -1,7 +1,7 @@
 import { loginTemplate } from './login.template';
 import { Button } from '../../../components/button';
 import { Page } from '../../../pages/shared/page';
-import { Input } from '../../../components/input/input';
+import { Input } from '../../../components/input';
 import { initializeForm } from '../../../utils/initialize-form';
 import { loginValidator, passwordValidator } from '../../../utils/validators';
 
@@ -14,7 +14,7 @@ export interface LoginPageChildren {
 
 export class LoginPage extends Page<{}, LoginPageChildren> {
   get className(): string {
-    return '';
+    return 'h-100';
   }
 
   get template(): string {
@@ -45,12 +45,14 @@ export class LoginPage extends Page<{}, LoginPageChildren> {
       required: true,
       validationFn: loginValidator,
       name: 'login',
-    })
+    });
     const loginButton = new Button({
       buttonText: 'Войти',
       type: 'submit',
       className: '-primary',
     });
-    return {loginButton, registerButton, passwordInput, loginInput};
+    return {
+      loginButton, registerButton, passwordInput, loginInput,
+    };
   }
 }

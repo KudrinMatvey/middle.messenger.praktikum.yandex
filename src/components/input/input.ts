@@ -1,4 +1,3 @@
-import { registerPartial } from 'handlebars';
 import { Block } from '../shared/block';
 import { FormField } from '../../utils/form-field';
 
@@ -11,59 +10,67 @@ export interface InputProps {
   className?: string;
 }
 
-export const registerInput = () => registerPartial(
-  'input',
-  `
-  <label class="input-field {{defaultValue className ''}}">
-    <input class="input" type="{{defaultValue type 'text'}}" placeholder="{{label}}" name="{{name}}" pattern="{{defaultValue pattern ''}}">
-    {{#if label}}<span class="label">{{label}}</span>{{/if}}
-  </label>
-`,
-);
-
 export class Input extends Block<InputProps> implements FormField {
-  private input: HTMLInputElement;
   private errorMessageElement: HTMLSpanElement;
+
   constructor(props: InputProps) {
     super('label', props, 'inline-block');
   }
 
   get className(): string {
-    return [this.props?.className,'input-field'].filter(Boolean).join(' ');
+    return [this.props?.className, 'input-field'].filter(Boolean).join(' ');
+  }
+
+  get inputElement(): HTMLInputElement {
+    return <HTMLInputElement> this.element?.querySelector('input');
+  }
+
+  get spanElement(): HTMLSpanElement {
+    return <HTMLSpanElement> this.element.querySelector('span.label');
   }
 
   get value(): string | undefined {
-    return this.element?.querySelector('input')?.value;
+    return this.inputElement?.value;
   }
 
   get name(): string {
-    return this.props.name;
+    return this.props.name ?? '';
   }
 
   protected componentDidRender() {
-    this.input = <HTMLInputElement>this.element.querySelector('input');
-    this.input.onblur = () => this.validate();
-    this.input.onfocus = () => this.validate();
-    this.errorMessageElement = <HTMLSpanElement>this.element.querySelector('.error-message');
+    this.inputElement.onblur = () => this.validate();
+    this.inputElement.onfocus = () => this.validate();
+    this.errorMessageElement = <HTMLSpanElement> this.element.querySelector('.error-message');
   }
 
   get template(): string {
     return `
       <input class="input" type="{{defaultValue type 'text'}}"
         placeholder="{{label}}" name="{{name}}"">
-      {{#if label}}<span class="label">{{label}}</span>{{/if}}
+      <span class="label">{{defaultValue label ''}}</span>
       <span class="error-message"></span>
     `;
   }
 
+  protected componentDidUpdate(oldProps: InputProps, newProps: InputProps): boolean {
+    if (oldProps.label !== newProps.label) {
+      this.inputElement.placeholder = newProps.label ?? '';
+      this.spanElement.innerText = newProps.label ?? '';
+    }
+    if (oldProps.type !== newProps.type) {
+      this.inputElement.type = newProps.type ?? '';
+    }
+    return false;
+  }
+
   validate = (): boolean => {
     let errorMessage = '';
-    if(this.props.required && !this.input.value) {
+    if (this.props.required && !this.inputElement.value) {
       errorMessage = 'Нужно заполнить это поле';
-    } else if(this.props.validationFn) {
+    } else if (this.props.validationFn) {
       errorMessage = this.props.validationFn(this.value);
     }
-    this.input.setCustomValidity(errorMessage);
+    this.inputElement.setCustomValidity(errorMessage);
     this.errorMessageElement.innerText = errorMessage;
     return true;
   }

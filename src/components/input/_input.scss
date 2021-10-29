@@ -45,6 +45,7 @@ $input-height: 20px;
   }}
 
   .error-message {
+
     @include text($color-red, $font-size-s);
   }
 }

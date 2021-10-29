@@ -14,7 +14,7 @@ export const loginValidator = (str: string): string => {
 };
 
 export const emailValidator = (str: string) => {
-  const valid = new RegExp(`^[a-zA-Z0-9.!#$%&'*+\\/=?^_\`{|}~-]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$`).test(str);
+  const valid = new RegExp('^[a-zA-Z0-9.!#$%&\'*+\\/=?^_`{|}~-]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]+$').test(str);
   return valid ? '' : 'Неправильная почта';
 };
 
@@ -37,21 +37,19 @@ export const phoneValidator = (str: string) => {
 export const nameValidator = (str: string) => {
   const startsFromCapital = /^[A-ZА-Я].*$/.test(str);
   if (!startsFromCapital) {
-    return `Поле должно начинаться с заглавной буквы`;
+    return 'Поле должно начинаться с заглавной буквы';
   }
   const validCyrillic = /^[А-Яа-я-]*$/.test(str);
   const validLatin = /^[A-Za-z-]*$/.test(str);
   if (validCyrillic || validLatin) {
     return '';
   }
-  return `Поле может содержать только кириллицу или латиницу и дефис`;
+  return 'Поле может содержать только кириллицу или латиницу и дефис';
 };
 
-export const passwordRepeatValidator = (otherField: {value?: string}) => {
-  return (str: string) => {
-    if (str !== otherField.value) {
-      return 'Пароли не совпадают';
-    }
-    return '';
+export const passwordRepeatValidator = (otherField: {value?: string}) => (str: string) => {
+  if (str !== otherField.value) {
+    return 'Пароли не совпадают';
   }
-}
+  return '';
+};

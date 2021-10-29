@@ -1,1 +1,1 @@
-export { renderChatHistory } from './chat-history';
+export { ChatHistoryComponent } from './chat-history';

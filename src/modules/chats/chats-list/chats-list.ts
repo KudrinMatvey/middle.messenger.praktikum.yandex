@@ -1,10 +1,29 @@
-import { compile } from 'handlebars';
-import { ChatMessageConfig } from '../../../components/chat-message';
+import { Block } from '../../../components/shared/block';
+import { chatsListTemplate } from './chats-list.template';
 
-export const renderChatList = (context: {
-  chatMessages: ChatMessageConfig[];
-}) => compile(`
-  {{#each chatMessages}}
-    {{> chat-preview}}
-  {{/each}}
-  `)(context);
+export interface ChatPreviewConfig {
+  message?: string;
+  imageUrl?: string;
+  isAuthor?: boolean;
+  name?: string;
+  timeStamp: string;
+  unreadMessagesCount: number;
+}
+
+export class ChatListComponent extends Block<{
+  chatPreviews: ChatPreviewConfig[];
+}> {
+  get className(): string {
+    return '';
+  }
+
+  constructor(props: {
+    chatPreviews: ChatPreviewConfig[];
+  }) {
+    super('div', props);
+  }
+
+  get template(): string {
+    return chatsListTemplate;
+  }
+}

@@ -6,9 +6,9 @@ import {
   nameValidator,
   passwordRepeatValidator,
   passwordValidator,
-  phoneValidator
+  phoneValidator,
 } from '../../../utils/validators';
-import { Input } from '../../../components/input/input';
+import { Input } from '../../../components/input';
 import { initializeForm } from '../../../utils/initialize-form';
 import { Page } from '../../../pages/shared/page';
 
@@ -25,7 +25,7 @@ interface RegisterPageChildren {
 
 export class RegisterPage extends Page<{}, RegisterPageChildren> {
   get className(): string {
-    return '';
+    return 'h-100';
   }
 
   get template(): string {
@@ -45,44 +45,44 @@ export class RegisterPage extends Page<{}, RegisterPageChildren> {
     const loginInput = new Input({
       name: 'login',
       validationFn: loginValidator,
-      label: 'Логин'
+      label: 'Логин',
     });
     const emailInput = new Input({
       name: 'email',
       validationFn: emailValidator,
-      label: 'Почта'
+      label: 'Почта',
     });
     const firstNameInput = new Input({
       name: 'first_name',
       validationFn: nameValidator,
-      label: 'Имя'
+      label: 'Имя',
     });
     const secondNameInput = new Input({
       name: 'second_name',
       validationFn: nameValidator,
-      label: 'Фамилия'
+      label: 'Фамилия',
     });
     const passwordInput = new Input({
       name: 'password',
       type: 'password',
       validationFn: passwordValidator,
-      label: 'Пароль'
+      label: 'Пароль',
     });
     const repeatPasswordInput = new Input({
       type: 'password',
       validationFn: passwordRepeatValidator(passwordInput),
-      label: 'Пароль (еще раз)'
+      label: 'Пароль (еще раз)',
     });
     const phoneInput = new Input({
       name: 'phone',
       type: 'tel',
       validationFn: phoneValidator,
-      label: 'Телефон'
+      label: 'Телефон',
     });
     const registerButton = new Button({
       buttonText: 'Зарегистрироваться',
       type: 'submit',
-      className: '-primary'
+      className: '-primary',
     });
     return {
       loginInput,
@@ -92,7 +92,7 @@ export class RegisterPage extends Page<{}, RegisterPageChildren> {
       passwordInput,
       repeatPasswordInput,
       phoneInput,
-      registerButton
+      registerButton,
     };
   }
 }

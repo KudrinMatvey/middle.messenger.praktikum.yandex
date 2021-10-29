@@ -1,5 +1,5 @@
+import { compile, TemplateDelegate } from 'handlebars';
 import { EventBus } from '../../utils';
-import { compile } from 'handlebars';
 
 enum ComponentEvent {
   INIT = 'init',
@@ -11,13 +11,16 @@ enum ComponentEvent {
 
 export abstract class Block<Props extends Object = Record<string, any>> {
   abstract get className(): string;
+
   abstract get template(): string;
 
-  private _element: HTMLElement;
+  protected _element: HTMLElement;
+
   get element(): HTMLElement {
     return this._element;
   }
-  protected compiledTemplate: HandlebarsTemplateDelegate<Props>;
+
+  protected compiledTemplate: TemplateDelegate<Props>;
 
   private _meta: {tagName: string; props: Props; display: 'block' | 'inline-block' | 'inline'};
 

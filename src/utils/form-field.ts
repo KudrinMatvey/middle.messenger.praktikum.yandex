@@ -8,7 +8,7 @@ export interface FormField<T = string> {
 
 export function FormFieldGuard(field: Block | FormField): field is FormField {
   if ((field as FormField).validate) {
-    return typeof((field as FormField).validate) === 'function';
+    return typeof ((field as FormField).validate) === 'function';
   }
   return false;
 }

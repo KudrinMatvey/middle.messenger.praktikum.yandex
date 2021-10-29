@@ -2,24 +2,24 @@ export const chatsPageTemplate = `
   <div class="chats-page">
     <div class="edit-profile"><a class="profile-link" href="profile.html">Профиль ></a></div>
     <div class="list-actions">
-    {{> search}}
-    {{> button buttonText="+" className="-primary -icon"}}
+    <div id="search"></div>
+    <div id="addChatButton"></div>
     </div>
-    <div class="list"> {{{chatListTmpl}}}</div>
+    <div class="list"><div id="chatList"></div></div>
     
-    {{#if chatHistoryTmpl}}
+    {{#if selectedChat}}
     <div class="selected-chat">
-      {{{chatHistoryTmpl}}}
+      <div id="chatHistory"></div>
     </div>
      <div class="message-actions">
-      {{> button attachButton}}
-      {{> input messageInput}}
-      {{> button sendButton}}
+       <div id="attachButton"></div>
+       <div id="messageInput"></div>
+       <div id="sendButton"></div>
     </div>
     <div class="chat-header">
       <img class="user-avatar -stub" src="">
       <div class="user-name">{{ userName }}</div>
-      {{> button optionsButton}}
+      <div id="optionsButton"></div>
     </div>
     {{else}}
       Выберите чат чтобы отправить сообщение

@@ -23,7 +23,10 @@
         "@typescript-eslint/no-shadow": ["error", { "hoist": "all"}],
         "no-unused-vars": "off",
         "@typescript-eslint/no-unused-vars": ["error"],
-        "class-methods-use-this": "warn"
+        "class-methods-use-this": "off",
+        "max-len": ["error", {
+            "code": 130
+        }]
     },
     "settings": {
         "import/resolver": {

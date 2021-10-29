@@ -1,26 +1,26 @@
 export const profilePageTemplate = `
   <div class="profile-page page-with-back">
     <div class="back">
-      {{> button icon="img/back.svg" className="-primary -icon -round"}}
+      <div id="backButton"></div>
     </div>
     <div class="content">
-      <div class="profile-form">
+      <form class="profile-form">
         <div class="edit-avatar">
           <img class="image" src="{{ defaultValue avatarUrl 'img/no-avatar.svg'}}" alt="">
           <input class="input" type="file" name="avatar">
         </div>
         <h2 class="name">{{ firstName }}</h2>
-        {{#each inputFields}} 
-          {{> input this}}
+        {{#each fieldIds}} 
+          <div id="{{this}}"></div>
         {{/each}}
         <div class="profile-actions">
-          {{#each actions}} 
+          {{#each actionIds}} 
             <div class="action">
-             {{> link this}}
+             <div id="{{this}}"></div>
             </div>
           {{/each}}        
         </div>
-      </div>
+      </form>
     </div>
   </div>
 `;

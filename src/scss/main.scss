@@ -9,10 +9,6 @@
 
 @import "src/components/input/input";
 
-@import "src/components/chat-message/chat-message";
-
-@import "src/components/chat-preview/chat-preview";
-
 @import "src/components/link/link";
 
 @import "src/components/search/search";
@@ -22,6 +18,8 @@
 @import "layouts";
 
 /* Other */
+
+@import "util-classes";
 
 @import "mixins";
 

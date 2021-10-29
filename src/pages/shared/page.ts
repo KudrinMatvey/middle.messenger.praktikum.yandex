@@ -15,10 +15,9 @@ export abstract class Page<Props, Children> extends Block<Props> {
 
   private renderChildren() {
     Object.entries(this.children).forEach(([key, value]) => {
-      const toReplace = this.element.querySelector(`#${ key }`);
+      const toReplace = this.element.querySelector(`#${key}`);
       const component = this.element.appendChild(value.getContent());
       toReplace?.parentElement?.replaceChild(component, toReplace);
     });
   }
 }
-
