@@ -1,4 +1,5 @@
 import { Block } from '../shared/block';
+import * as styles from './button.module.scss'
 
 export interface ButtonConfig {
   onClick?: () => any;
@@ -34,7 +35,7 @@ export class Button extends Block<ButtonConfig> {
   }
 
   get className(): string {
-    return [this.props?.className, 'button'].filter(Boolean).join(' ');
+    return [this.props?.className, styles.button].filter(Boolean).join(' ');
   }
 
   get template() {

@@ -4,7 +4,7 @@
 
 $input-height: 20px;
 
-.input-field {
+.inputField {
   width: 100%;
   position: relative;
 
@@ -27,24 +27,26 @@ $input-height: 20px;
     display: none;
   }
 
-  &.-round {
+  &.round {
 
     > .input {
-    height: 32px;
-    padding: 0 $offset-m;
-    border-radius: 100px;
-  }}
+      height: 32px;
+      padding: 0 $offset-m;
+      border-radius: 100px;
+    }
+  }
 
-  &.-grey {
+  &.grey {
 
     > .input {
 
-    @include text($color-text-dark);
-    background-color: $color-avatar-bg;
-    border: none;
-  }}
+      @include text($color-text-dark);
+      background-color: $color-avatar-bg;
+      border: none;
+    }
+  }
 
-  .error-message {
+  .errorMessage {
 
     @include text($color-red, $font-size-s);
   }

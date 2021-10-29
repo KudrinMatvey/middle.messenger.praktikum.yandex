@@ -1,5 +1,6 @@
 import { Block } from '../shared/block';
 import { FormField } from '../../utils/form-field';
+import * as styles from './input.module.scss'
 
 export interface InputProps {
   validationFn?: (val?: string) => string;
@@ -18,7 +19,7 @@ export class Input extends Block<InputProps> implements FormField {
   }
 
   get className(): string {
-    return [this.props?.className, 'input-field'].filter(Boolean).join(' ');
+    return [this.props?.className, styles.inputField].filter(Boolean).join(' ');
   }
 
   get inputElement(): HTMLInputElement {
@@ -45,10 +46,10 @@ export class Input extends Block<InputProps> implements FormField {
 
   get template(): string {
     return `
-      <input class="input" type="{{defaultValue type 'text'}}"
+      <input class="${styles.input}" type="{{defaultValue type 'text'}}"
         placeholder="{{label}}" name="{{name}}"">
-      <span class="label">{{defaultValue label ''}}</span>
-      <span class="error-message"></span>
+      <span class="${styles.label}">{{defaultValue label ''}}</span>
+      <span class="${styles.errorMessage}"></span>
     `;
   }
 

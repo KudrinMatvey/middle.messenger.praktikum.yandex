@@ -5,6 +5,9 @@ import { Input } from '../../../components/input';
 import { initializeForm } from '../../../utils/initialize-form';
 import { loginValidator, passwordValidator } from '../../../utils/validators';
 import * as styles from './login.module.scss'
+import * as buttonStyles from '../../../components/button/button.module.scss'
+
+console.log({styles, buttonStyles})
 
 export interface LoginPageChildren {
   loginButton: Button;
@@ -52,7 +55,10 @@ export class LoginPage extends Page<{}, LoginPageChildren> {
     const loginButton = new Button({
       buttonText: 'Войти',
       type: 'submit',
-      className: '-primary',
+      className: [
+        buttonStyles.primary,
+        styles.actionButton
+      ].join(' ')
     });
     return {
       loginButton, registerButton, passwordInput, loginInput,

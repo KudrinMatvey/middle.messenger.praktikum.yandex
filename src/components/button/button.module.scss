@@ -17,16 +17,16 @@ $button-padding: 12px;
 
   background-color: $color-text-light;
 
-  &.-primary {
+  &.primary {
     color: $color-text-light;
     background-color: $color-tangerine;
   }
 
-  &.-round {
+  &.round {
     border-radius: 100%;
   }
 
-  &.-icon {
+  &.icon {
 
     @include size(24px);
 
@@ -34,7 +34,7 @@ $button-padding: 12px;
     padding: 0;
   }
 
-  &.-transparent {
+  &.transparent {
     background-color: transparent;
   }
 }
