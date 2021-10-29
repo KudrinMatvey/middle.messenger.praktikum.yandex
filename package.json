@@ -8,7 +8,7 @@
     "eslint": "eslint **/*.ts --fix",
     "stylelint": "stylelint **/*.scss --fix customSyntax=scss",
     "build": "parcel build static/index.html",
-    "tsm": "tcm -p src/**/*module.scss -w --nameFormat camel"
+    "tsm": "tsm src/**/*.module.scss -w"
   },
   "staticFiles": {
     "staticPath": "img",
@@ -34,8 +34,7 @@
     "parcel-transformer-ts-css-modules": "^1.0.6",
     "stylelint": "^14.0.0",
     "stylelint-scss": "^4.0.0",
-    "typed-scss-modules": "^4.1.1",
-    "typescript": "^4.4.4"
+    "typed-scss-modules": "^4.1.1"
   },
   "dependencies": {
     "express": "^4.17.1",

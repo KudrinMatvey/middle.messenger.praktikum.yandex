@@ -4,15 +4,12 @@
 
 $login-width: 300px;
 
-.auth-page {
+.authPage {
   height: 100%;
-}
-
-.auth-page {
   @include center;
 }
 
-.authorization-wrapper {
+.authorizationWrapper {
   width: $login-width;
   display: flex;
   flex-direction: column;
@@ -23,10 +20,9 @@ $login-width: 300px;
   border-radius: $border-radius-m;
 
   padding: $offset-m;
-
 }
 
-.input-field {
+.inputField {
   margin-bottom: $offset-l;
 }
 

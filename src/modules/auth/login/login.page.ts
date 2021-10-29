@@ -4,6 +4,7 @@ import { Page } from '../../../pages/shared/page';
 import { Input } from '../../../components/input';
 import { initializeForm } from '../../../utils/initialize-form';
 import { loginValidator, passwordValidator } from '../../../utils/validators';
+import * as styles from './login.module.scss'
 
 export interface LoginPageChildren {
   loginButton: Button;
@@ -37,12 +38,14 @@ export class LoginPage extends Page<{}, LoginPageChildren> {
     const passwordInput = new Input({
       type: 'password',
       name: 'password',
+      className: styles.inputField,
       validationFn: passwordValidator,
       label: 'Пароль',
     });
     const loginInput = new Input({
       label: 'Логин',
       required: true,
+      className: styles.inputField,
       validationFn: loginValidator,
       name: 'login',
     });
