@@ -13,10 +13,6 @@ export interface InputProps {
 }
 
 export class Input extends Block<InputProps> implements FormField {
-  private get errorMessageElement(): HTMLSpanElement {
-    return <HTMLSpanElement> this.element.querySelector(`.${styles.errorMessage}`);
-  }
-
   constructor(props: InputProps) {
     super('label', props, 'inline-block');
   }
@@ -41,11 +37,6 @@ export class Input extends Block<InputProps> implements FormField {
     return this.props.name ?? '';
   }
 
-  protected componentDidRender() {
-    this.inputElement.onblur = () => this.validate();
-    this.inputElement.onfocus = () => this.validate();
-  }
-
   get template(): string {
     return `
       <input class="${styles.input}" type="{{defaultValue type 'text'}}"
@@ -53,6 +44,27 @@ export class Input extends Block<InputProps> implements FormField {
       <span class="${styles.label}">{{defaultValue label ''}}</span>
       <span class="${styles.errorMessage}"></span>
     `;
+  }
+
+  private get errorMessageElement(): HTMLSpanElement {
+    return <HTMLSpanElement> this.element.querySelector(`.${styles.errorMessage}`);
+  }
+
+  validate = (): boolean => {
+    let errorMessage = '';
+    if (this.props.required && !this.inputElement.value) {
+      errorMessage = 'Нужно заполнить это поле';
+    } else if (this.props.validationFn) {
+      errorMessage = this.props.validationFn(this.value);
+    }
+    this.inputElement.setCustomValidity(errorMessage);
+    this.errorMessageElement.innerText = errorMessage;
+    return true;
+  }
+
+  protected componentDidRender() {
+    this.inputElement.onblur = () => this.validate();
+    this.inputElement.onfocus = () => this.validate();
   }
 
   protected componentDidUpdate(oldProps: InputProps, newProps: InputProps): boolean {
@@ -67,17 +79,5 @@ export class Input extends Block<InputProps> implements FormField {
     // Otherwise it will potentially create a situation where
     // the component has rendered - user starts typing, props changed - everything reset
     return false;
-  }
-
-  validate = (): boolean => {
-    let errorMessage = '';
-    if (this.props.required && !this.inputElement.value) {
-      errorMessage = 'Нужно заполнить это поле';
-    } else if (this.props.validationFn) {
-      errorMessage = this.props.validationFn(this.value);
-    }
-    this.inputElement.setCustomValidity(errorMessage);
-    this.errorMessageElement.innerText = errorMessage;
-    return true;
   }
 }

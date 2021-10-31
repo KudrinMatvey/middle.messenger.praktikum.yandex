@@ -24,6 +24,10 @@ export class Search extends Block<SearchProps> {
     return this.element.value;
   }
 
+  get template(): string {
+    return '';
+  }
+
   protected componentDidMount() {
     this.element.onkeydown = () => this.props.searchFn?.(this.value);
     this.element.placeholder = this.props.placeholder;
@@ -33,9 +37,5 @@ export class Search extends Block<SearchProps> {
     this.element.onkeydown = () => newProps.searchFn?.(this.value);
     this.element.placeholder = newProps.placeholder;
     return false;
-  }
-
-  get template(): string {
-    return '';
   }
 }

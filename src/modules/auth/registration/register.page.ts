@@ -37,11 +37,6 @@ export class RegisterPage extends Page<{}, RegisterPageChildren> {
     return this.element.querySelector('form');
   }
 
-  protected componentDidRender() {
-    super.componentDidRender();
-    initializeForm(this.form, this.children, (value) => console.log(value));
-  }
-
   buildChildren(): RegisterPageChildren {
     const loginInput = new Input({
       name: 'login',
@@ -102,5 +97,10 @@ export class RegisterPage extends Page<{}, RegisterPageChildren> {
       phoneInput,
       registerButton,
     };
+  }
+
+  protected componentDidRender() {
+    super.componentDidRender();
+    initializeForm(this.form, this.children, (value) => console.log(value));
   }
 }

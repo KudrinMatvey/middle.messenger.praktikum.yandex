@@ -13,14 +13,14 @@ export interface ChatPreviewConfig {
 export class ChatListComponent extends Block<{
   chatPreviews: ChatPreviewConfig[];
 }> {
-  get className(): string {
-    return '';
-  }
-
   constructor(props: {
     chatPreviews: ChatPreviewConfig[];
   }) {
     super('div', props);
+  }
+
+  get className(): string {
+    return '';
   }
 
   get template(): string {

@@ -8,6 +8,18 @@ import { Page } from '../../../pages/shared/page';
 import { Link } from '../../../components/link';
 
 export class EditPasswordPage extends Page<ProfilePageProps, ProfilePageChildren> {
+  get className(): string {
+    return profilePageStyles.profilePage;
+  }
+
+  get template(): string {
+    return profilePageTemplate;
+  }
+
+  get form() {
+    return this.element.querySelector('form');
+  }
+
   buildChildren(): ProfilePageChildren {
     const oldPassword = new Input({
       className: profilePageStyles.inputField,
@@ -47,18 +59,6 @@ export class EditPasswordPage extends Page<ProfilePageProps, ProfilePageChildren
 
     this.setChildKeys(children);
     return children;
-  }
-
-  get className(): string {
-    return profilePageStyles.profilePage;
-  }
-
-  get template(): string {
-    return profilePageTemplate;
-  }
-
-  get form() {
-    return this.element.querySelector('form');
   }
 
   protected componentDidRender() {

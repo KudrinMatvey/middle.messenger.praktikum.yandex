@@ -24,16 +24,16 @@ interface ChatsPageProps {
 }
 
 export class ChatsPage extends Page<ChatsPageProps, ChatsPageChildren> {
+  constructor(props: ChatsPageProps = { selectedChat: true, userName: 'вадим' }) {
+    super('div', props);
+  }
+
   get className(): string {
     return styles.chatsPage;
   }
 
   get template(): string {
     return chatsPageTemplate;
-  }
-
-  constructor(props: ChatsPageProps = { selectedChat: true, userName: 'вадим' }) {
-    super('div', props);
   }
 
   buildChildren(): ChatsPageChildren {

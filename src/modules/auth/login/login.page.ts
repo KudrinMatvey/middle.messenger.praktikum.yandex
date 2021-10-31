@@ -26,11 +26,6 @@ export class LoginPage extends Page<{}, LoginPageChildren> {
     return this.element.querySelector('form');
   }
 
-  protected componentDidRender() {
-    super.componentDidRender();
-    initializeForm(this.form, this.children, (value) => console.log(value));
-  }
-
   buildChildren(): LoginPageChildren {
     const registerButton = new Button({
       buttonText: 'Нет аккаунта?',
@@ -60,5 +55,10 @@ export class LoginPage extends Page<{}, LoginPageChildren> {
     return {
       loginButton, registerButton, passwordInput, loginInput,
     };
+  }
+
+  protected componentDidRender() {
+    super.componentDidRender();
+    initializeForm(this.form, this.children, (value) => console.log(value));
   }
 }

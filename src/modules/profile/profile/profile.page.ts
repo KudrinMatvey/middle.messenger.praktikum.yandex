@@ -10,6 +10,18 @@ import { Page } from '../../../pages/shared/page';
 import { Link, linkStyles } from '../../../components/link';
 
 export class ProfilePage extends Page<ProfilePageProps, ProfilePageChildren> {
+  get className(): string {
+    return profilePageStyles.profilePage;
+  }
+
+  get template(): string {
+    return profilePageTemplate;
+  }
+
+  get form() {
+    return this.element.querySelector('form');
+  }
+
   buildChildren(): ProfilePageChildren {
     const editLink = new Link({
       text: 'Изменить Данные',
@@ -63,18 +75,6 @@ export class ProfilePage extends Page<ProfilePageProps, ProfilePageChildren> {
 
     this.setChildKeys(children);
     return children;
-  }
-
-  get className(): string {
-    return profilePageStyles.profilePage;
-  }
-
-  get template(): string {
-    return profilePageTemplate;
-  }
-
-  get form() {
-    return this.element.querySelector('form');
   }
 
   protected componentDidRender() {

@@ -3,8 +3,6 @@ import { Block } from '../../components/shared/block';
 export abstract class Page<Props, Children> extends Block<Props> {
   children: Children;
 
-  abstract buildChildren(): Children;
-
   protected componentDidRender() {
     this.renderChildren();
   }
@@ -20,4 +18,6 @@ export abstract class Page<Props, Children> extends Block<Props> {
       toReplace?.parentElement?.replaceChild(component, toReplace);
     });
   }
+
+  abstract buildChildren(): Children;
 }

@@ -15,28 +15,12 @@ export class Button extends Block<ButtonConfig> {
     super('button', props);
   }
 
-  protected componentDidMount() {
-    this.element.onclick = this.onClick.bind(this);
-    this.element.type = this.props.type ?? 'button';
+  get className(): string {
+    return getClassNames([this.props?.className, styles.button]);
   }
 
   get element(): HTMLButtonElement {
     return this._element as HTMLButtonElement;
-  }
-
-  protected componentDidUpdate(oldProps: ButtonConfig, newProps: ButtonConfig): boolean {
-    this.element.type = newProps.type ?? 'button';
-    return oldProps.buttonText !== newProps.buttonText
-          || oldProps.icon !== newProps.icon
-          || oldProps.className !== newProps.className;
-  }
-
-  onClick() {
-    this.props?.onClick?.();
-  }
-
-  get className(): string {
-    return getClassNames([this.props?.className, styles.button]);
   }
 
   get template() {
@@ -44,5 +28,21 @@ export class Button extends Block<ButtonConfig> {
       {{defaultValue buttonText ''}}
       {{#if icon}}<img src="{{ icon }}" alt="">{{/if}}
     `;
+  }
+
+  onClick() {
+    this.props?.onClick?.();
+  }
+
+  protected componentDidMount() {
+    this.element.onclick = this.onClick.bind(this);
+    this.element.type = this.props.type ?? 'button';
+  }
+
+  protected componentDidUpdate(oldProps: ButtonConfig, newProps: ButtonConfig): boolean {
+    this.element.type = newProps.type ?? 'button';
+    return oldProps.buttonText !== newProps.buttonText
+          || oldProps.icon !== newProps.icon
+          || oldProps.className !== newProps.className;
   }
 }
