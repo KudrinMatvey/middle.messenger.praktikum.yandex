@@ -1,6 +1,7 @@
 import { Block } from '../shared/block';
 import { FormField } from '../../utils/form-field';
 import * as styles from './input.module.scss';
+import { getClassNames } from '../../utils/get-class-names';
 
 export interface InputProps {
   validationFn?: (val?: string) => string;
@@ -21,7 +22,7 @@ export class Input extends Block<InputProps> implements FormField {
   }
 
   get className(): string {
-    return [this.props?.className, styles.inputField].filter(Boolean).join(' ');
+    return getClassNames([this.props?.className, styles.inputField]);
   }
 
   get inputElement(): HTMLInputElement {
@@ -62,6 +63,9 @@ export class Input extends Block<InputProps> implements FormField {
     if (oldProps.type !== newProps.type) {
       this.inputElement.type = newProps.type ?? '';
     }
+    // the idea for always returning false is that input tag will be rendered once and kept if props changed.
+    // Otherwise it will potentially create a situation where
+    // the component has rendered - user starts typing, props changed - everything reset
     return false;
   }
 

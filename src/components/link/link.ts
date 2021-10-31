@@ -1,5 +1,6 @@
 import { Block } from '../shared/block';
 import * as styles from './link.module.scss';
+import { getClassNames } from '../../utils/get-class-names';
 
 export interface LinkProps {
   text: string;
@@ -15,7 +16,7 @@ export class Link extends Block<LinkProps> {
   }
 
   get className(): string {
-    return [styles.linkWrapper, this.props.className].filter(Boolean).join(' ');
+    return getClassNames([styles.linkWrapper, this.props.className]);
   }
 
   constructor(props: LinkProps) {
@@ -23,7 +24,6 @@ export class Link extends Block<LinkProps> {
   }
 
   protected componentDidRender() {
-    super.componentDidRender();
     const link = this.element.querySelector('a');
     if (link && (typeof this.props.onClick === 'function')) {
       link.addEventListener('click', this.onClick.bind(this));

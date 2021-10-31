@@ -1,5 +1,6 @@
 import { Block } from '../shared/block';
 import * as styles from './search.module.scss';
+import { getClassNames } from '../../utils/get-class-names';
 
 export interface SearchProps {
   searchFn: (str: string) => unknown;
@@ -12,7 +13,7 @@ export class Search extends Block<SearchProps> {
   }
 
   get className(): string {
-    return [this.props.className, styles.searchField].filter(Boolean).join(' ');
+    return getClassNames([this.props.className, styles.searchField]);
   }
 
   get element(): HTMLInputElement {
