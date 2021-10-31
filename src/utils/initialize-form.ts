@@ -3,7 +3,6 @@ import { FormFieldGuard } from './form-field';
 export function initializeForm<FF>(form: HTMLFormElement | null, componentMap: FF, onSubmit: (values: any) => void) {
   function checkAndSubmitForm(event: Event) {
     event.preventDefault();
-    event.stopPropagation();
     const fields = Object.values(componentMap)
       .filter(FormFieldGuard);
     const valid = fields

@@ -1,8 +1,8 @@
 import { registerDefaultValueHelper } from '../../../utils';
-import { ProfilePage } from './profile.page';
 import { render } from '../../../utils/render';
+import { EditProfilePage } from './edit-profile.page';
 
 registerDefaultValueHelper();
 
-const page = new ProfilePage();
+const page = new EditProfilePage();
 render('body', page);

@@ -9,7 +9,7 @@ import { initializeForm } from '../../../utils/initialize-form';
 import { Page } from '../../../pages/shared/page';
 import { Link, linkStyles } from '../../../components/link';
 
-export class ProfilePage extends Page<ProfilePageProps, ProfilePageChildren> {
+export class EditProfilePage extends Page<ProfilePageProps, ProfilePageChildren> {
   get className(): string {
     return profilePageStyles.profilePage;
   }
