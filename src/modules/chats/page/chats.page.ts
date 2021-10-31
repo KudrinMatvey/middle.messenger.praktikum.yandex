@@ -6,6 +6,7 @@ import { Page } from '../../../pages/shared/page';
 import { chatsPageTemplate } from './chats-page.template';
 import { ChatHistoryComponent } from '../history';
 import * as styles from './chats.module.scss';
+import { _chatHistory, _chatList } from './stubs';
 
 interface ChatsPageChildren {
   chatHistory: ChatHistoryComponent;
@@ -37,106 +38,6 @@ export class ChatsPage extends Page<ChatsPageProps, ChatsPageChildren> {
   }
 
   buildChildren(): ChatsPageChildren {
-    const _chatHistory = [
-      {
-        imageUrl: 'img/surprised-cat.jpg',
-        timeStamp: '10:22',
-      },
-      {
-        isAuthor: true,
-        message: 'go like',
-        timeStamp: '10:22',
-        userName: 'mr Krabs',
-      },
-    ];
-    const _chatList = {
-      chatPreviews: [
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-        {
-          name: 'string',
-          timeStamp: '22:11',
-          message: 'text',
-          isAuthor: true,
-          unreadMessagesCount: 2,
-        },
-      ],
-    };
     const sendButton = new Button(
       {
         icon: 'img/forward.svg',

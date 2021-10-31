@@ -1,0 +1,100 @@
+export const _chatHistory = [
+  {
+    imageUrl: 'img/surprised-cat.jpg',
+    timeStamp: '10:22',
+  },
+  {
+    isAuthor: true,
+    message: 'go like',
+    timeStamp: '10:22',
+    userName: 'mr Krabs',
+  },
+];
+export const _chatList = {
+  chatPreviews: [
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+    {
+      name: 'string',
+      timeStamp: '22:11',
+      message: 'text',
+      isAuthor: true,
+      unreadMessagesCount: 2,
+    },
+  ],
+};
