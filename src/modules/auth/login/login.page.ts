@@ -54,8 +54,8 @@ export class LoginPage extends Page<{}, LoginPageChildren> {
       type: 'submit',
       className: [
         buttonStyles.primary,
-        authStyles.actionButton
-      ].join(' ')
+        authStyles.actionButton,
+      ].join(' '),
     });
     return {
       loginButton, registerButton, passwordInput, loginInput,

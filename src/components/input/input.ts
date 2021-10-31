@@ -1,6 +1,6 @@
 import { Block } from '../shared/block';
 import { FormField } from '../../utils/form-field';
-import * as styles from './input.module.scss'
+import * as styles from './input.module.scss';
 
 export interface InputProps {
   validationFn?: (val?: string) => string;
@@ -13,8 +13,8 @@ export interface InputProps {
 
 export class Input extends Block<InputProps> implements FormField {
   private get errorMessageElement(): HTMLSpanElement {
-    return <HTMLSpanElement> this.element.querySelector('.' + styles.errorMessage);
-  };
+    return <HTMLSpanElement> this.element.querySelector(`.${styles.errorMessage}`);
+  }
 
   constructor(props: InputProps) {
     super('label', props, 'inline-block');

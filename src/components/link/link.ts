@@ -1,5 +1,5 @@
 import { Block } from '../shared/block';
-import * as styles from './link.module.scss'
+import * as styles from './link.module.scss';
 
 export interface LinkProps {
   text: string;
@@ -31,6 +31,6 @@ export class Link extends Block<LinkProps> {
   }
 
   get template(): string {
-    return `<a href="{{ defaultValue href \'#\' }}" class="${styles.link} {{defaultValue  \'\'}}"> {{ text }}</a>`;
+    return `<a href="{{ defaultValue href '#' }}" class="${styles.link} {{defaultValue  ''}}"> {{ text }}</a>`;
   }
 }

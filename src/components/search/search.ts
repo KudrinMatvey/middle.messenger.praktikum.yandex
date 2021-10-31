@@ -1,5 +1,5 @@
 import { Block } from '../shared/block';
-import * as styles from './search.module.scss'
+import * as styles from './search.module.scss';
 
 export interface SearchProps {
   searchFn: (str: string) => unknown;

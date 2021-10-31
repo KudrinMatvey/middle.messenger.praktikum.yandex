@@ -1,6 +1,5 @@
 import * as styles from './chats.module.scss';
 
-
 export const chatsPageTemplate = `
     <div class="${styles.editProfile}"><a class="${styles.profileLink}" href="profile.html">Профиль ></a></div>
     <div class="${styles.listActions}">

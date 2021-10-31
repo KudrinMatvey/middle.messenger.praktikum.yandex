@@ -1,5 +1,5 @@
 import { registerTemplate } from './register.template';
-import { Button } from '../../../components/button';
+import { Button, buttonStyles } from '../../../components/button';
 import {
   emailValidator,
   loginValidator,
@@ -12,8 +12,6 @@ import { Input } from '../../../components/input';
 import { initializeForm } from '../../../utils/initialize-form';
 import { Page } from '../../../pages/shared/page';
 import { authStyles } from '../shared';
-import { buttonStyles } from '../../../components/button';
-
 
 interface RegisterPageChildren {
   registerButton: Button;

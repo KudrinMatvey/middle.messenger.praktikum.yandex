@@ -67,7 +67,7 @@ $color-navigation-border: #eaeaea;
   }
 
   &::after {
-    opacity: 0;
+    opacity: 0%;
     cursor: pointer;
     background-color: color.adjust($color-black, $alpha: -0.5);
     content: "Поменять аватар";

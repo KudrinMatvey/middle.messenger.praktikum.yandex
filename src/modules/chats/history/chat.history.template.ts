@@ -1,4 +1,4 @@
-import * as styles from './chat-history.module.scss'
+import * as styles from './chat-history.module.scss';
 
 export const chatsHistoryTemplate = `
 {{#each messages}}

@@ -11,17 +11,22 @@ export class EditPasswordPage extends Page<ProfilePageProps, ProfilePageChildren
   buildChildren(): ProfilePageChildren {
     const oldPassword = new Input({
       className: profilePageStyles.inputField,
-      label: 'Старый пароль', type: 'password', name: 'oldPassword'
+      label: 'Старый пароль',
+      type: 'password',
+      name: 'oldPassword',
     });
     const newPassword = new Input({
-      label: 'Новый пароль', type: 'password', name: 'newPassword', validationFn: passwordValidator,
-      className: profilePageStyles.inputField
+      label: 'Новый пароль',
+      type: 'password',
+      name: 'newPassword',
+      validationFn: passwordValidator,
+      className: profilePageStyles.inputField,
     });
     const repeatPassword = new Input({
       label: 'Новый пароль (еще раз)',
       className: profilePageStyles.inputField,
       type: 'password',
-      validationFn: passwordRepeatValidator(newPassword)
+      validationFn: passwordRepeatValidator(newPassword),
     });
     const backButton = new Button(
       {
@@ -33,11 +38,11 @@ export class EditPasswordPage extends Page<ProfilePageProps, ProfilePageChildren
     const saveLink = new Link({
       text: 'Сохранить',
       onClick: () => { this.form?.dispatchEvent(new Event('submit')); },
-      className: profilePageStyles.action
+      className: profilePageStyles.action,
     });
     const backLink = new Link({ text: 'Назад', href: 'profile.html', className: profilePageStyles.action });
     const children = {
-      oldPassword, newPassword, repeatPassword, backButton, saveLink, backLink
+      oldPassword, newPassword, repeatPassword, backButton, saveLink, backLink,
     };
 
     this.setChildKeys(children);
