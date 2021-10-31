@@ -1,8 +1,8 @@
 import { Block } from '../shared/block';
-import * as styles from './button.module.scss'
+import * as styles from './button.module.scss';
 
 export interface ButtonConfig {
-  onClick?: () => any;
+  onClick?: () => void;
   buttonText?: string;
   icon?: string;
   type?: 'submit' | 'reset';

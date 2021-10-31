@@ -25,9 +25,10 @@ export class EditPasswordPage extends Page<ProfilePageProps, ProfilePageChildren
     });
     const backButton = new Button(
       {
-        icon: 'img/back.svg', onClick: () => window.history.back(),
-        className: [buttonStyles.primary, buttonStyles.icon, buttonStyles.round].join(' ')
-      }
+        icon: 'img/back.svg',
+        onClick: () => { window.history.back(); },
+        className: [buttonStyles.primary, buttonStyles.icon, buttonStyles.round].join(' '),
+      },
     );
     const saveLink = new Link({
       text: 'Сохранить',

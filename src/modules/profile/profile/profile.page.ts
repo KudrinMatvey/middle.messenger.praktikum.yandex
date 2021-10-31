@@ -9,8 +9,16 @@ import { Link, linkStyles } from '../../../components/link';
 
 export class ProfilePage extends Page<ProfilePageProps, ProfilePageChildren> {
   buildChildren(): ProfilePageChildren {
-    const editLink = new Link({ text: 'Изменить Данные', onClick: () => { this.form?.dispatchEvent(new Event('submit')); }, className: profilePageStyles.action });
-    const changePasswordLink = new Link({ text: 'Изменить Пароль', href: 'profile-edit-password.html', className: profilePageStyles.action}, );
+    const editLink = new Link({
+      text: 'Изменить Данные',
+      onClick: () => { this.form?.dispatchEvent(new Event('submit')); },
+      className: profilePageStyles.action,
+    });
+    const changePasswordLink = new Link({
+      text: 'Изменить Пароль',
+      href: 'profile-edit-password.html',
+      className: profilePageStyles.action,
+    });
     const exitLink = new Link({ text: 'Выйти', className: [profilePageStyles.action, linkStyles.red].join(' ') });
 
     const emailInput = new Input({ label: 'Почта', name: 'email', validationFn: emailValidator, className: profilePageStyles.inputField });
@@ -21,8 +29,10 @@ export class ProfilePage extends Page<ProfilePageProps, ProfilePageChildren> {
     const phoneInput = new Input({ label: 'Телефон', name: 'phone', validationFn: phoneValidator, className: profilePageStyles.inputField });
 
     const backButton = new Button(
-      { icon: 'img/back.svg', onClick: () => window.history.back(),
-        className: [buttonStyles.primary, buttonStyles.icon, buttonStyles.round].join(' ')
+      {
+        icon: 'img/back.svg',
+        onClick: () => window.history.back(),
+        className: [buttonStyles.primary, buttonStyles.icon, buttonStyles.round].join(' '),
       },
     );
 
