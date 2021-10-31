@@ -9,6 +9,13 @@ enum ComponentEvent {
   FLOW_RENDER = 'flow:render',
 }
 
+enum DisplayType {
+  BLOCK= 'block',
+  INLINE_BLOCK= 'inline-block',
+  INLINE = 'inline',
+  NONE = 'none',
+}
+
 export abstract class Block<Props extends Object = Record<string, any>> {
   protected _element: HTMLElement;
 
@@ -16,13 +23,13 @@ export abstract class Block<Props extends Object = Record<string, any>> {
 
   protected props: Props;
 
-  private _meta: {tagName: string; props: Props; display: 'block' | 'inline-block' | 'inline'};
+  private _meta: {tagName: string; props: Props; display: DisplayType};
 
   private _id: string = `${this.constructor.name}-${Math.random().toString(16).slice(2)}`;
 
   private eventBus: EventBus<ComponentEvent>;
 
-  constructor(tagName = 'div', props = {} as Props, display: 'block' | 'inline-block' | 'inline' = 'block') {
+  constructor(tagName = 'div', props = {} as Props, display = DisplayType.BLOCK) {
     this.eventBus = new EventBus<ComponentEvent>();
     this._meta = {
       tagName,
@@ -64,7 +71,7 @@ export abstract class Block<Props extends Object = Record<string, any>> {
   }
 
   hide() {
-    this._element.style.display = 'none';
+    this._element.style.display = DisplayType.NONE;
   }
 
   getContent() {
