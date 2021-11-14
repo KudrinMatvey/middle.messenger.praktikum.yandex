@@ -1,0 +1,62 @@
+@import "src/scss/variables";
+
+@import "src/scss/mixins";
+
+$flex-basis: 50px;
+$avatar-size: 36px;
+
+.chatPreview {
+  display: flex;
+  flex-direction: row;
+  padding: $offset-s;
+  border-top: 1px solid $color-card-border;
+
+  > .userAvatar {
+
+    @include size($avatar-size);
+
+    flex: $avatar-size 0 0;
+    border-radius: 100%;
+    margin-right: $offset-m;
+
+    &.stub {
+      background-color: $color-avatar-bg;
+    }
+  }
+
+  > .messageContent {
+    flex-grow: 1;
+
+    > .author {
+
+      @include title;
+
+      padding-bottom: $offset-m;
+    }
+
+    > .lastMessage {
+
+      @include ellipsis;
+    }
+  }
+
+  > .info {
+    flex: $flex-basis 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    > .unreadCount {
+
+      @include text($color-white, $font-size-s);
+
+      @include size(16px);
+
+      @include center;
+
+      border-radius: 100px;
+      background-color: $color-red;
+    }
+  }
+}

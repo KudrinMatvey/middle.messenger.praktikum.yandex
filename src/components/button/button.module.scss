@@ -1,0 +1,39 @@
+@import "src/scss/variables";
+
+@import "src/scss/mixins";
+
+$button-padding: 12px;
+
+.button {
+
+  @include text($color-tangerine);
+
+  cursor: pointer;
+  width: 100%;
+  padding: $button-padding;
+  border: 0;
+  border-radius: $border-radius-sm;
+  background-color: $color-text-light;
+
+  &.primary {
+    color: $color-text-light;
+    background-color: $color-tangerine;
+  }
+
+  &.round {
+    border-radius: 100%;
+  }
+
+  &.icon {
+
+    @include size(24px);
+
+    @include center;
+
+    padding: 0;
+  }
+
+  &.transparent {
+    background-color: transparent;
+  }
+}

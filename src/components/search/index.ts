@@ -1,1 +1,2 @@
-export { registerSearch } from "./search";
+export { Search } from './search';
+export type { SearchProps } from './search';

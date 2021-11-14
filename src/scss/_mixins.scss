@@ -8,7 +8,9 @@
 }
 
 @mixin text-bold($color: $color-text-grey) {
+
   @include text($color);
+
   font-weight: bold;
 }
 

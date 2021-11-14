@@ -1,0 +1,36 @@
+@use "sass:color";
+
+@import "../../../scss/mixins";
+
+@import "../../../scss/variables";
+
+$login-width: 300px;
+
+.authPage {
+  height: 100%;
+
+  @include center;
+}
+
+.authorizationWrapper {
+  width: $login-width;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-shadow: 0 0 6px color.adjust($color-black, $alpha: -0.86);
+  border-radius: $border-radius-m;
+  padding: $offset-m;
+}
+
+.inputField {
+  margin-bottom: $offset-l;
+}
+
+.header {
+  margin-bottom: 60px;
+}
+
+.actionButton {
+  margin-bottom: $offset-xs;
+}

@@ -1,0 +1,46 @@
+@import "src/scss/variables";
+
+@import "src/scss/mixins";
+// need to ignore this line for Min to work
+// using lowercase will break this, since min is scss global function,
+// Min will use native css min
+/* stylelint-disable function-name-case */
+$message-max-width: Min(410px, 70%);
+/* stylelint-enable function-name-case */
+
+$message-image-max-height: 400px;
+
+.chatMessage {
+  background-color: $color-card-bg;
+  color: black;
+  padding: $offset-s;
+  margin: $offset-m auto $offset-m $offset-s;
+  border-radius: $border-radius-sm;
+  max-width: $message-max-width;
+
+  &.own {
+    background-color: $color-misty-rose;
+    margin: $offset-m $offset-m $offset-s auto;
+  }
+
+  .image {
+    object-fit: contain;
+    width: 100%;
+    max-height: $message-image-max-height;
+  }
+
+  .text {
+
+    @include text($color-black);
+  }
+
+  .info {
+    margin-top: $offset-s;
+    display: flex;
+    font-size: $font-size-s;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include text($color-text-dark);
+  }
+}

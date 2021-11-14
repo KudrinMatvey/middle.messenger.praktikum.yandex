@@ -1,2 +1,3 @@
-export { registerInput } from "./input";
-export type { InputConfig } from "./input";
+export { Input } from './input';
+export type { InputProps } from './input';
+export * as inputStyles from './input.module.scss';

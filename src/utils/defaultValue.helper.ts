@@ -1,7 +1,5 @@
-import { registerHelper } from "handlebars";
+import { registerHelper } from 'handlebars';
 
 export const registerDefaultValueHelper = () => {
-  registerHelper("defaultValue", function (value, defaultValue) {
-    return value ?? defaultValue;
-  });
+  registerHelper('defaultValue', (value, defaultValue) => value ?? defaultValue);
 };

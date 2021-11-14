@@ -1,2 +1,3 @@
-export { registerLink } from "./link";
-export type { LinkConfig } from "./link";
+export { Link } from './link';
+export type { LinkProps } from './link';
+export * as linkStyles from './link.module.scss';

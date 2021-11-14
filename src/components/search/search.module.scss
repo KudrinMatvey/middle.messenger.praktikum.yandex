@@ -1,0 +1,14 @@
+@import "src/scss/mixins";
+
+@import "src/scss/variables";
+
+.searchField {
+
+  @include text($color-text-dark);
+
+  padding: 0 $offset-m;
+  background-color: $color-avatar-bg;
+  border: none;
+  height: 32px;
+  border-radius: 5px;
+}

@@ -1,0 +1,61 @@
+@import "src/scss/variables";
+
+@import "src/scss/mixins";
+
+$input-height: 20px;
+
+.inputField {
+  width: 100%;
+  position: relative;
+
+  > .label {
+
+    @include text($color-text-grey, $font-size-xs);
+
+    display: block;
+    position: absolute;
+    top: -12px;
+  }
+
+  > .input {
+    height: $input-height;
+    border: 0;
+    border-bottom: 1px solid $color-black;
+    width: 100%;
+  }
+
+  input:placeholder-shown:not(.noLabel) + .label {
+    display: none;
+  }
+
+  &.round {
+
+    > .input {
+      height: 32px;
+      padding: 0 $offset-m;
+      border-radius: 100px;
+    }
+  }
+
+  &.grey {
+
+    > .input {
+
+      @include text($color-text-dark);
+
+      background-color: $color-avatar-bg;
+      border: none;
+    }
+  }
+
+  .errorMessage {
+
+    @include text($color-red, $font-size-s);
+  }
+}
+
+.noLabel {
+  .label {
+    display: none;
+  }
+}

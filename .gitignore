@@ -7,3 +7,6 @@ node_modules
 
 # idea
 .idea
+
+# d.ts files for scss modules
+src/**/*.module.scss.d.ts

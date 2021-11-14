@@ -1,19 +1,26 @@
 @import "src/scss/variables";
+
 @import "src/scss/mixins";
 
 .error-page {
+
   @include center;
+
   flex-direction: column;
   height: 100%;
 
   > .code {
+
     @include title;
+
     font-size: 60px;
     margin-bottom: $offset-l;
   }
 
   > .text {
+
     @include text($color-text-dark, $font-size-l);
+
     margin-bottom: $offset-m;
 
     > .link {
